@@ -24,3 +24,7 @@ Might need to change Build Script
 
 Pending...
 Jest, JSDOM
+
+## Notes:
+gulp-postcss 9 incompatible with autoprefixer. Use version 8.
+npm install gulp-postcss@">8.0.0 <9.0.0" --save-dev

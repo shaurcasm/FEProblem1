@@ -4,9 +4,9 @@
   "description": "A project for a Geektrust front-end problem.",
   "main": "server.js",
   "scripts": {
-    "start": "npm run dev",
+    "start": "npm run server",
     "client": "cd client && npm start",
-    "server": "nodemon server.js",
+    "server": "concurrently --kill-others-on-fail \"node server.js\" \"gulp watch\"",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "cd client && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -24,7 +24,16 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
+    "autoprefixer": "^10.0.2",
+    "browser-sync": "^2.26.13",
     "concurrently": "^5.3.0",
-    "nodemon": "^2.0.6"
+    "cssnano": "^4.1.10",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^9.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "nodemon": "^2.0.6",
+    "postcss": "^8.1.7",
+    "pug": "^3.0.0"
   }
 }
