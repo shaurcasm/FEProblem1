@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux'
-import planetListing from './planetListing'
-import vehicleListing from './vehicleListing'
+import planetList from './planetList.js'
 
 const rootReducer = combineReducers({
-    planetListing,
-    vehicleListing
+    planetList
 });
 
 export default rootReducer

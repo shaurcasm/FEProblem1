@@ -1,11 +1,8 @@
-import { PLANET, VEHICLE } from '../constants/ActionTypes';
-
-// Planet List
-export const addPlanet = planetName => ({ type: PLANET.ADD, planetName }),
-    replacePlanet = (newPlanetName, previousPlanetName) => ({ type: PLANET.REPLACE, newPlanetName, previousPlanetName }),
-    resetPlanetList = () => ({ type: PLANET.RESET });
+import * as type from '../constants/ActionTypes';
+//import { planetsAPI, vehiclesAPI, tokenAPI, findAPI } from '../constants/API'
 
 // Vehicle List
-export const addVehicle = vehicleName => ({ type: VEHICLE.ADD, vehicleName }),
-    replaceVehicle = (newVehicleName, previousVehicleName) => ({ type: VEHICLE.REPLACE, newVehicleName, previousVehicleName }),
-    resetVehicleList = () => ({ type: VEHICLE.RESET });
+export const addVehicle = vehicleName => ({ type: type.VEHICLE.ADD, vehicleName }),
+    replaceVehicle = (newVehicleName, previousVehicleName) => ({ type: type.VEHICLE.REPLACE, newVehicleName, previousVehicleName }),
+    resetVehicleList = () => ({ type: type.VEHICLE.RESET });
+
