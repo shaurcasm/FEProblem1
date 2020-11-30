@@ -1,18 +1,19 @@
+//Presentational code for Main Section
+
 import React, { useEffect } from 'react'
 //import PropTypes from 'prop-types'
-//import SelectionPanel from '../SelectionPanel'
+import SelectionPanel from '../SelectionPanel'
 
 const Presentational = ({ planets, loading, error, selectionPanelVisibility, select, fetch }) => {
-    const addPlanet = (event) => select.addPlanet(event.target.value);
-    const replacePlanet = (newPlanet, oldPlanet) => select.replacePlanet(newPlanet, oldPlanet);
-    const resetPlanetList = () => select.resetPlanetList();
+    //const addPlanet = (event) => select.addPlanet(event.target.value);
+    //const replacePlanet = (newPlanet, oldPlanet) => select.replacePlanet(newPlanet, oldPlanet);
+    //const resetPlanetList = () => select.resetPlanetList();
 
     // ComponentDidMount() but for functional component.
     useEffect(() => {
         console.log("Fetching...");
         fetch();
         console.log('Done');
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [fetch]);
 
     if(error) {
@@ -21,29 +22,29 @@ const Presentational = ({ planets, loading, error, selectionPanelVisibility, sel
     if(loading) {
         return <div>Loading...</div>
     }
-    /*
+
     return (
         <section className="main">
-            <div className="selection-panel" style={{display: "flex"}} >
+            <div className="selection-container" style={{display: "flex"}} >
                 <h2>Planet 1</h2>
-                <SelectionPanel planets={planetArray} select={select} />
+                <SelectionPanel planets={planets} select={select} />
             </div>
-            <div className="selection-panel" style={{display: selectionPanelVisibility.second}} >
+            <div className="selection-container" style={{display: selectionPanelVisibility.second}} >
                 <h2>Planet 2</h2>
-                <SelectionPanel planets={planetArray} select={select} />
+                <SelectionPanel planets={planets} select={select} />
             </div>
-            <div className="selection-panel" style={{display: selectionPanelVisibility.third}} >
+            <div className="selection-container" style={{display: selectionPanelVisibility.third}} >
                 <h2>Planet 3</h2>
-                <SelectionPanel planets={planetArray} select={select} />
+                <SelectionPanel planets={planets} select={select} />
             </div>
-            <div className="selection-panel" style={{display: selectionPanelVisibility.fourth}} >
+            <div className="selection-container" style={{display: selectionPanelVisibility.fourth}} >
                 <h2>Planet 3</h2>
-                <SelectionPanel planets={planetArray} select={select} />
+                <SelectionPanel planets={planets} select={select} />
             </div>
         </section>
     )
-    */
-
+    
+    /*
     return (
         <section className="main">
             <ul>
@@ -64,6 +65,7 @@ const Presentational = ({ planets, loading, error, selectionPanelVisibility, sel
             </div>
         </section>
     )
+    */
 }
 
 /*

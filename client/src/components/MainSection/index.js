@@ -1,20 +1,21 @@
-// Container code for the component.
+// Container code for Main Section
+
 import { connect } from 'react-redux'
 import { fetchPlanets } from '../../actions/fetchPlanets.js'
-import * as selectPlanets from '../../actions/selectPlanets.js'
-import { bindActionCreators } from 'redux'
+//import * as selectPlanets from '../../actions/selectPlanets.js'
+//import { bindActionCreators } from 'redux'
 import Presentational from './Presentational'
 import { selectionPanelVisibility } from '../../selectors'
 
 const mapStateToProps = state => ({
-    planets: state.planetList.planetArray,
-    loading: state.planetList.loading,
-    error: state.planetList.error,
+    //planets: state.planetList.planetArray,
+    //loading: state.planetList.loading,
+    //error: state.planetList.error,
     selectionPanelVisibility: selectionPanelVisibility(state)
 });
 
 const mapDispatchToProps = dispatch => ({
-    select: bindActionCreators(selectPlanets, dispatch),
+    //select: bindActionCreators(selectPlanets, dispatch),
     fetch: () => dispatch(fetchPlanets())
 })
 
