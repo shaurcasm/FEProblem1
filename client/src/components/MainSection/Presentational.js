@@ -1,71 +1,48 @@
 //Presentational code for Main Section
 
-import React, { useEffect } from 'react'
-//import PropTypes from 'prop-types'
-import SelectionPanel from '../SelectionPanel'
+import React, { useEffect } from 'react';
+import SelectionPanel from '../SelectionPanel';
+import './style.scss';
+//import PropTypes from 'prop-types';
 
-const Presentational = ({ planets, loading, error, selectionPanelVisibility, select, fetch }) => {
-    //const addPlanet = (event) => select.addPlanet(event.target.value);
-    //const replacePlanet = (newPlanet, oldPlanet) => select.replacePlanet(newPlanet, oldPlanet);
-    //const resetPlanetList = () => select.resetPlanetList();
+// ToDO: Submit button. Process selected values into passable object.
+const Presentational = ({ loading, error, selectionPanelVisibility, fetchPlanets, fetchVehicles }) => {
 
     // ComponentDidMount() but for functional component.
     useEffect(() => {
         console.log("Fetching...");
-        fetch();
+        fetchPlanets();
+        fetchVehicles();
         console.log('Done');
-    }, [fetch]);
+    }, [fetchPlanets, fetchVehicles]);
 
-    if(error) {
-        return <div>Error! {error.message}</div>
+    // Display any Errors while fetching
+    if (error) {
+        return <div id='error'>Error! {error.message}</div>
     }
-    if(loading) {
-        return <div>Loading...</div>
+    // Luxury: Display something while fetching, if wanted.
+    if (loading) {
+        return <div id='loading'>Loading...</div>
     }
 
+    // Display each latter SectionalPanel after checking from selector.
     return (
         <section className="main">
-            <div className="selection-container" style={{display: "flex"}} >
-                <h2>Planet 1</h2>
-                <SelectionPanel planets={planets} select={select} />
+            <h2>Choose 4 planets and vehicles: Find Queen Al Falcone.</h2>
+            <div id='planet-one' className="selection-container" style={{ display: "flex" }} >
+                <SelectionPanel key='1' />
             </div>
-            <div className="selection-container" style={{display: selectionPanelVisibility.second}} >
-                <h2>Planet 2</h2>
-                <SelectionPanel planets={planets} select={select} />
+            <div id='planet-two' className="selection-container" style={{ display: selectionPanelVisibility.second }} >
+                <SelectionPanel direction="row-reverse" key='2' />
             </div>
-            <div className="selection-container" style={{display: selectionPanelVisibility.third}} >
-                <h2>Planet 3</h2>
-                <SelectionPanel planets={planets} select={select} />
+            <div id='planet-three' className="selection-container" style={{ display: selectionPanelVisibility.third }} >
+                <SelectionPanel key='3' />
             </div>
-            <div className="selection-container" style={{display: selectionPanelVisibility.fourth}} >
-                <h2>Planet 3</h2>
-                <SelectionPanel planets={planets} select={select} />
+            <div id='planet-four' className="selection-container" style={{ display: selectionPanelVisibility.fourth, flexDirection: "row-reverse" }} >
+                <SelectionPanel direction="row-reverse" key='4' />
             </div>
         </section>
     )
-    
-    /*
-    return (
-        <section className="main">
-            <ul>
-                {planets.map((planet, index) => <li key={index}>{planet.name} : {planet.distance} : {planet.selected.toString()}</li>)}
-            </ul>
-            <h1>{selectionPanelVisibility.second}</h1>
-            <div className="selection-panel" style={{display: "flex"}} >
-                <h2>Planet 1</h2>
-                <button id="planet-one" value="Donlon" style={{width:"100px", height:"30px"}} onClick={addPlanet}>Add Donlon</button>
-                <button onClick={resetPlanetList}>Reset</button> 
-            </div>
-            <div className="selection-panel" style={{display: selectionPanelVisibility.second}} >
-                <h2>Planet 2</h2>
-            </div>
-            <div className="selection-panel" style={{display: selectionPanelVisibility.third}} >
-            </div>
-            <div className="selection-panel" style={{display: selectionPanelVisibility.fourth}} >
-            </div>
-        </section>
-    )
-    */
 }
 
 /*
@@ -93,5 +70,4 @@ const Presentational = ({ listCount, planet_names, vehicle_names }) => {
 }
 */
 
-// Display: flex and none;
 export default Presentational

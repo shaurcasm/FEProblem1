@@ -1,4 +1,5 @@
-import { FETCH_PLANETS, SELECT_PLANET } from '../constants/ActionTypes'
+import { FETCH_PLANETS, SELECT_PLANET } from '../constants/ActionTypes';
+import produce from 'immer';
 
 const INITIAL_STATE = {
     planetArray: [],
@@ -6,66 +7,61 @@ const INITIAL_STATE = {
     error: null
 };
 
-export default function planetListReducer(state = INITIAL_STATE, action) {
+const planetList = (state = INITIAL_STATE, action) => produce(state, draft => {
+    // eslint-disable-next-line default-case
     switch(action.type) {
         case FETCH_PLANETS.BEGIN:
             // Flag loading to show something while waiting if wanted.
-            return {
-                ...state,
-                loading: true,
-                error: null
-            };
+            draft.loading = true;
+            draft.error = null;
+            break;
         
         case FETCH_PLANETS.SUCCESS:
-            return {
-                ...state,
-                loading: false,
-                planetArray: action.payload.planetArray
-            };
+            draft.loading = false;
+            draft.planetArray = action.payload.planetArray;
+            draft.error = null;
+            break;
 
         case FETCH_PLANETS.FAILURE:
-            return {
-                ...state,
-                loading: false,
-                error: action.payload.error,
-                planetArray: []
-            };
+            draft.loading = false;
+            draft.error = action.payload.error;
+            draft.planetArray = [];
+            break;
 
         case SELECT_PLANET.ADD:
-            return {
-                ...state,
-                planetArray: state.planetArray.map((planet) => {
-                    if(planet.name === action.planetName) {
+            const { planetName } = action;
+            if(planetName) {    
+                draft.planetArray = draft.planetArray.map((planet) => {
+                    if(planet.name === planetName) {
                         planet.selected = true;
                     }
                     return planet;
-                })
+                });
             }
+            break;
         
         case SELECT_PLANET.REPLACE:
-            return {
-                ...state,
-                planetArray: state.planetArray.map((planet) => {
-                    if(planet.name === action.previousPlanetName) {
+            const { newPlanetName, previousPlanetName } = action;
+            if(newPlanetName && previousPlanetName) {
+                draft.planetArray = draft.planetArray.map((planet) => {
+                    if(planet.name === previousPlanetName) {
                         planet.selected = false;
                     }
-                    else if(planet.name === action.newPlanetName) {
+                    else if(planet.name === newPlanetName) {
                         planet.selected = true;
                     }
                     return planet;
                 })
             }
+            break;
 
         case SELECT_PLANET.RESET:
-            return {
-                ...state,
-                planetArray: state.planetArray.map((planet) => {
-                    planet.selected = false;
-                    return planet;
-                })
-            }
-            
-        default:
-            return state;
+            draft.planetArray = draft.planetArray.map(planet => {
+                planet.selected = false;
+                return planet;
+            });
+            break;
     }
-}
+});
+
+export default planetList;

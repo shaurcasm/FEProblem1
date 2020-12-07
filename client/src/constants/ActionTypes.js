@@ -6,10 +6,10 @@ export const SELECT_PLANET = {
 };
 
 // Vehicles
-export const VEHICLE = {
-    ADD: 'VEHICLE_ADD',
-    REPLACE: 'VEHICLE_REPLACE',
-    RESET: 'VEHICLE_RESET'
+export const SELECT_VEHICLE = {
+    ADD: 'SELECT_VEHICLE_ADD',
+    REPLACE: 'SELECT_VEHICLE_REPLACE',
+    RESET: 'SELECT_VEHICLE_RESET'
 };
 
 export const FETCH_PLANETS = {
