@@ -66,7 +66,7 @@ const Presentational = ({ planets, select, changeImage }) => {
     return (
         <div className='planet-list'>
             <label htmlFor='planet-selector' className='sr-only'>Choose a Planet from this list:</label>
-            <input type='text' list='available-planets' name='planet-selector' onChange={inputValidation} placeholder="Pick a Planet." autoCorrect='off' spellCheck='false' />
+            <input type='text' list='available-planets' name='planet-selector' onChange={inputValidation} placeholder="Pick a Planet." autoCorrect='off' spellCheck='false' autoFocus />
             <datalist id='available-planets'>
                 {planetOptions}
             </datalist>

@@ -1,15 +1,60 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const fetch = require('node-fetch');
+
+const TOKEN_API = "https://findfalcone.herokuapp.com/token";
+const FIND_API = "https://findfalcone.herokuapp.com/find";
 
 const app = express();
 const port = process.env.PORT || 9000;
 
-app.set('view engine', 'pug');
+const getResult = async (requestBody) => {
+    var requestOptions = {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: requestBody
+    }
+    var response = await fetch(FIND_API, requestOptions);
+    var result = await response.json();
+    //console.log("Result = " + JSON.stringify(result));
+    
+    return result;
+}
+
+const getToken = async () => {
+    var requestOptions = {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' }
+    }
+    var response = await fetch(TOKEN_API, requestOptions);
+    var tokenObject = await response.json();
+    //console.log('Token = ' + JSON.stringify(tokenObject));
+
+    return tokenObject.token;
+}
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/public', express.static(__dirname + '/public'));
+
+app.route('/api/getResult')
+    .post(async (req, res) => {
+        //console.log("Accessed api route.");
+        var token = await getToken();
+        //console.log("Completed Token.");
+
+        var attemptObject = {};
+        attemptObject['token'] = token;  // e.g. {'planetnames': [], 'vehiclenames':[]}
+        attemptObject['planet_names'] = req.body['planet_names'];    // e.g. {token: 'ladida', planetnames:[], vehiclenames:[]}
+        attemptObject['vehicle_names'] = req.body['vehicle_names'];
+        //console.log("Attempt Object = " + JSON.stringify(attemptObject));
+
+        var result = await getResult(JSON.stringify(attemptObject));
+        //console.log('Result = ' + JSON.stringify(result));
+
+        res.send(result)
+    });
 
 if(process.env.NODE_ENV === 'production') {
     // Serve any static files
@@ -22,7 +67,7 @@ if(process.env.NODE_ENV === 'production') {
 }
 
 app.get('/', (req, res) => {
-    res.render('index');
-})
+    res.render('./views/index.html');
+});
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

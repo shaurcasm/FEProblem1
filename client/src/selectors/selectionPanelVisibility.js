@@ -1,8 +1,8 @@
-import { createSelector } from 'reselect'
+import { createSelector } from 'reselect';
 
 const planets = state => state.planetList.planetArray
 
-export const selectionPanelVisibility = createSelector(
+const selectionPanelVisibility = createSelector(
     [planets],
     (planetArray) => {
         var selectedPlanets = planetArray.reduce((count, planet) => {
@@ -19,39 +19,54 @@ export const selectionPanelVisibility = createSelector(
                 selection = {
                     second: "none",
                     third: "none",
-                    fourth: "none"
+                    fourth: "none",
+                    submitButton: true
                 }
                 break;
             case 1:
                 selection = {
                     second: "flex",
                     third: "none",
-                    fourth: "none"
+                    fourth: "none",
+                    submitButton: true
                 }
                 break;
             case 2:
                 selection = {
                     second: "flex",
                     third: "flex",
-                    fourth: "none"
+                    fourth: "none",
+                    submitButton: true
                 }
                 break;
             case 3:
                 selection = {
                     second: "flex",
                     third: "flex",
-                    fourth: "flex"
+                    fourth: "flex",
+                    submitButton: true
+                }
+                break;
+            case 4:
+                selection = {
+                    second: "flex",
+                    third: "flex",
+                    fourth: "flex",
+                    submitButton: false
                 }
                 break;
             default:
                 selection = {
                     second: "none",
                     third: "none",
-                    fourth: "none"
+                    fourth: "none",
+                    submitButton: true
                 }
                 break;
         }
 
         return selection;
     }
-)
+);
+
+export default selectionPanelVisibility;

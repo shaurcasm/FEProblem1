@@ -10,13 +10,15 @@
 }
 
 .vehicle-list {
+    margin: 1.5vh 0;
 
     input {
         background-color: $cultured;
+        border-color: $space-cadet;
         width: 150px;
         height: 30px;
         font-size: 1.2rem;
         color: $space-cadet;
-        text-align: center;
+        text-indent: 1vw;
     }
 }

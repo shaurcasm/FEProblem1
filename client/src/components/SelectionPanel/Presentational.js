@@ -1,27 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import PlanetList from '../PlanetList'
-import VehicleList from '../VehicleList'
-import './style.scss'
+import React, { useEffect, useState } from 'react';
+import PlanetList from '../PlanetList';
+import VehicleList from '../VehicleList';
+import { DEFAULT_SRC, DEFAULT_ALT, DEFAULT_RANGE, planetToImageSrcMatrix } from '../../constants/Misc.js';
+import './style.scss';
 
 // ToDo: Image Styling; Panel Styling.
-const DEFAULT_SRC = "/images/misc/al-falcone.png";
-const DEFAULT_ALT = "Target Queen Al Falcone";
-const DEFAULT_RANGE = 3000; // Should be high enough to keep vehicles disabled by default.
-
-const planetToImageSrcMatrix = {
-    'Donlon': "/images/planets/donlon.png",
-    'Enchai': "/images/planets/enchai.png",
-    'Jebing': "/images/planets/jebing.png",
-    'Lerbin': "/images/planets/lerbin.png",
-    'Pingasor': "/images/planets/pingasor.png",
-    'Sapir': "/images/planets/sapir.png"
-}
 
 // Might not need container if redux state not used.
 const Presentational =  ({ planets, direction }) => {
     const [imageSource, setSource] = useState(DEFAULT_SRC);
     const [planetName, setName] = useState(DEFAULT_ALT);
-    const [distanceToPlanet, setRange] = useState(DEFAULT_RANGE);
+    const [distanceToPlanet, setDistance] = useState(DEFAULT_RANGE);
+    const [timeToPlanet, setTime] = useState(null);
     const reverseOrNot = direction || 'row';
 
     // Set image of the planet if available, else set default if no planet or no image.
@@ -39,8 +29,12 @@ const Presentational =  ({ planets, direction }) => {
         }
     }
 
+    const changeTime = (time) => {
+        setTime(time);
+    }
+
     useEffect(() => {
-        setRange(() => {
+        setDistance(() => {
             let selectedPlanet = planets.filter(planet => planet.name === planetName);
             return selectedPlanet.length === 1 ? selectedPlanet[0].distance : DEFAULT_RANGE;
         });
@@ -49,10 +43,18 @@ const Presentational =  ({ planets, direction }) => {
 
     return (
         <div style={{flexDirection: reverseOrNot}} className="selection-panel">
-            <img className="planet-image" src={imageSource} alt={planetName}></img>
+            <div className="image-container">
+                <img className="planet-image" src={imageSource} alt={planetName}></img>
+            </div>
+            { timeToPlanet &&
+                <div className="time-container">
+                    Touchdown in ...
+                    <p className="time">{timeToPlanet} units</p>
+                </div>
+            }
             <div className="selectors-container">
                 <PlanetList changeImage={changePlanetImage} />
-                <VehicleList distanceToPlanet={distanceToPlanet} />
+                <VehicleList distanceToPlanet={distanceToPlanet} changeTime={changeTime} />
             </div>
         </div>
     )

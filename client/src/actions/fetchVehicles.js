@@ -1,5 +1,6 @@
 import { FETCH_VEHICLES } from '../constants/ActionTypes.js';
-import { vehiclesAPI } from '../constants/ApiUrls.js';   // Contains the URL to the API
+import { VEHICLES_API } from '../constants/Misc.js';   // Contains the URL to the API
+import fetch from 'node-fetch';
 
 export const fetchVehiclesBegin = () => ({
     type: FETCH_VEHICLES.BEGIN
@@ -19,11 +20,11 @@ export function fetchVehicles() {
     return dispatch => {
         dispatch(fetchVehiclesBegin());
 
-        return fetch(vehiclesAPI)
+        return fetch(VEHICLES_API)
             .then(handleErrors)
             .then(res => res.json())
             .then(json => {
-                json = json.map((obj) => ({ ...obj, selected: false }))
+                json = json.map((obj) => ({ ...obj, selected: [] }))
                 dispatch(fetchVehiclesSuccess(json));
                 return json;
             })

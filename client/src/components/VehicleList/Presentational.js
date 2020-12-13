@@ -1,7 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import { DEFAULT_RANGE } from '../../constants/Misc.js';
 import './style.scss';
 
-const Presentational = ({ vehicles, select, distance }) => {
+const timeManagement = (distance, speed) => {
+    if((distance > 0) && (distance < DEFAULT_RANGE)) {
+        //console.log('Distance = ' + distance, 'Speed = ' + speed);
+        return Math.round((distance / speed) * 100) / 100;  // Limiting precision to limit decimal calculation errors.
+    }
+
+    else {
+        // Out of range error
+    }
+}
+
+const Presentational = ({ vehicles, select, distance, changeTime }) => {
     const [selectedVehicle, setSelection] = useState('');
     const [previousSelection, setPrevious] = useState('');
     const [options, setOptions] = useState([]); // To Keep track of options even after re-renders.
@@ -23,22 +35,21 @@ const Presentational = ({ vehicles, select, distance }) => {
       setOptions([...tempOptions]);
     }, [distance, vehicles]);
 
-    // Apply if local state selected planet is changed(second argument)
+    // Redux state management for Vehicles. 
     useEffect(() => {
         //console.log("Current Vehicle: ", selectedVehicle);
         //console.log("Previous Vehicle: ", previousSelection);
-        //console.log("Vehicle array: ", localVehicles);
 
         if(selectedVehicle !== previousSelection) {
             // If there was a previous selection, replace it with new one use redux action
             if(previousSelection) {
-                console.log('Replace action!');
+                //console.log('Replace action!');
                 select.replaceVehicle(selectedVehicle, previousSelection);
                 setPrevious(selectedVehicle);
             }
             // Else, no previous selection. Merely use add action.
             else {
-                console.log('Add action!')
+                //console.log('Add action!')
                 select.addVehicle(selectedVehicle);
                 setPrevious(selectedVehicle);
             }
@@ -58,6 +69,9 @@ const Presentational = ({ vehicles, select, distance }) => {
             if(input.value.toUpperCase() === optionValue.toUpperCase()) {
                 optionFound = true;
                 setSelection(optionValue);
+                let vehicleSpeed = vehicles.filter(vehicle => vehicle.name === optionValue)[0].speed;
+                let time = timeManagement(distance, vehicleSpeed);
+                changeTime(time);
                 break;
             }
         }

@@ -1,5 +1,4 @@
-import { SELECT_PLANET } from '../constants/ActionTypes'
-//import { fetchPlanetsBegin, fetchPlanetsSuccess, fetchPlanetsFailure } from './fetchPlanets'
+import { SELECT_PLANET } from '../constants/ActionTypes';
 
 // Planet List
 export const addPlanet = planetName => ({

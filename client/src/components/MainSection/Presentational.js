@@ -1,20 +1,62 @@
 //Presentational code for Main Section
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import SelectionPanel from '../SelectionPanel';
 import './style.scss';
+import fetch from 'node-fetch';
 //import PropTypes from 'prop-types';
 
-// ToDO: Submit button. Process selected values into passable object.
-const Presentational = ({ loading, error, selectionPanelVisibility, fetchPlanets, fetchVehicles }) => {
+const Presentational = ({ loading, error, selectionPanelVisibility, selectedOptions, fetchPlanets, fetchVehicles }) => {
+    const resultRef = useRef(null);
 
     // ComponentDidMount() but for functional component.
     useEffect(() => {
-        console.log("Fetching...");
+        //console.log("Fetching...");
         fetchPlanets();
         fetchVehicles();
-        console.log('Done');
+        //console.log('Done');
     }, [fetchPlanets, fetchVehicles]);
+
+    const onSubmit = () => {
+        // Process user input and send to route for result.
+        // const token = importedTokenAPI()
+        // Handle 4xx and 5xx errors for fetch.
+        const handleErrors = (response) => {
+            if(!response.ok) {
+                throw Error(response.statusText);
+            }
+            return response;
+        };
+
+        //console.log("Selected Options = " + JSON.stringify(selectedOptions));   // Convert object to JSON to display. 
+
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(selectedOptions)
+        }
+
+        fetch('/api/getResult', requestOptions)
+            .then(handleErrors)
+            .then(res => res.json())
+            .then(data => {
+                console.log("In React Result = " + JSON.stringify(data));
+                if(data.error) {
+                    resultRef.current.innerHTML = data.error;
+                }
+                else {
+                    if((data.status === 'success') && data["planet_name"]) {
+                        resultRef.current.innerHTML = `It's a success. Found Queen in <span style='color: red'>${data["planet_name"]}</span>.`;
+                    }
+                    else {
+                        resultRef.current.innerHTML = `Mission failed. We'll get her next <span style='color: red'>time</span>.`;
+                    }
+                }
+            })
+            .catch(error => console.log('Error = ' + error))  // Display error.
+
+        //console.log('Result in onSubmit = ' + JSON.stringify(result));
+    }
 
     // Display any Errors while fetching
     if (error) {
@@ -38,36 +80,13 @@ const Presentational = ({ loading, error, selectionPanelVisibility, fetchPlanets
             <div id='planet-three' className="selection-container" style={{ display: selectionPanelVisibility.third }} >
                 <SelectionPanel key='3' />
             </div>
-            <div id='planet-four' className="selection-container" style={{ display: selectionPanelVisibility.fourth, flexDirection: "row-reverse" }} >
+            <div id='planet-four' className="selection-container" style={{ display: selectionPanelVisibility.fourth }} >
                 <SelectionPanel direction="row-reverse" key='4' />
             </div>
+            <button id='submit-button' type='submit' disabled={selectionPanelVisibility.submitButton} onClick={onSubmit}>Submit</button>
+            <div ref={resultRef} className='result-container'></div>
         </section>
-    )
+    );
 }
 
-/*
-const Presentational = ({ listCount, planet_names, vehicle_names }) => {
-    
-    var selection = planetListing(listCount);
-
-    return (
-        <section className="main">
-            <div className="selection-panel" style={{display: "flex"}} >
-                <SelectionPanel planetsAndDistance={planetsAndDistance} />
-            </div>
-            <div className="selection-panel" style={{display: selectionPanelVisibility.second}} >
-                <SelectionPanel />
-            </div>
-            <div className="selection-panel" style={{display: selectionPanelVisibility.third}} >
-                <SelectionPanel />
-            </div>
-            <div className="selection-panel" style={{display: selectionPanelVisibility.fourth}} >
-                <SelectionPanel />
-            </div>
-            <button onClick="send planet_names and vehicle_names to route" className="disable if 4 planets not selected">Submit</button> 
-        </section>
-    )
-}
-*/
-
-export default Presentational
+export default Presentational;
