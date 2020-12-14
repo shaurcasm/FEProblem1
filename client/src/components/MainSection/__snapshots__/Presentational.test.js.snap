@@ -1,0 +1,376 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Presentational <MainSection /> render() Renders all panels and enables submit Button when four planets selected 1`] = `
+<section
+  className="main"
+>
+  <h2>
+    Choose 4 planets and vehicles: Find Queen Al Falcone.
+  </h2>
+  <div
+    className="selection-container"
+    id="planet-one"
+    style={
+      Object {
+        "display": "flex",
+      }
+    }
+  >
+    <Connect(Presentational)
+      key="1"
+    />
+  </div>
+  <div
+    className="selection-container"
+    id="planet-two"
+    style={
+      Object {
+        "display": "flex",
+      }
+    }
+  >
+    <Connect(Presentational)
+      direction="row-reverse"
+      key="2"
+    />
+  </div>
+  <div
+    className="selection-container"
+    id="planet-three"
+    style={
+      Object {
+        "display": "flex",
+      }
+    }
+  >
+    <Connect(Presentational)
+      key="3"
+    />
+  </div>
+  <div
+    className="selection-container"
+    id="planet-four"
+    style={
+      Object {
+        "display": "flex",
+      }
+    }
+  >
+    <Connect(Presentational)
+      direction="row-reverse"
+      key="4"
+    />
+  </div>
+  <button
+    disabled={false}
+    id="submit-button"
+    onClick={[Function]}
+    type="submit"
+  >
+    Submit
+  </button>
+  <div
+    className="result-container"
+  />
+</section>
+`;
+
+exports[`Presentational <MainSection /> render() Renders four panels when three planets selected 1`] = `
+<section
+  className="main"
+>
+  <h2>
+    Choose 4 planets and vehicles: Find Queen Al Falcone.
+  </h2>
+  <div
+    className="selection-container"
+    id="planet-one"
+    style={
+      Object {
+        "display": "flex",
+      }
+    }
+  >
+    <Connect(Presentational)
+      key="1"
+    />
+  </div>
+  <div
+    className="selection-container"
+    id="planet-two"
+    style={
+      Object {
+        "display": "flex",
+      }
+    }
+  >
+    <Connect(Presentational)
+      direction="row-reverse"
+      key="2"
+    />
+  </div>
+  <div
+    className="selection-container"
+    id="planet-three"
+    style={
+      Object {
+        "display": "flex",
+      }
+    }
+  >
+    <Connect(Presentational)
+      key="3"
+    />
+  </div>
+  <div
+    className="selection-container"
+    id="planet-four"
+    style={
+      Object {
+        "display": "flex",
+      }
+    }
+  >
+    <Connect(Presentational)
+      direction="row-reverse"
+      key="4"
+    />
+  </div>
+  <button
+    disabled={true}
+    id="submit-button"
+    onClick={[Function]}
+    type="submit"
+  >
+    Submit
+  </button>
+  <div
+    className="result-container"
+  />
+</section>
+`;
+
+exports[`Presentational <MainSection /> render() Renders one Panel at default 1`] = `
+<section
+  className="main"
+>
+  <h2>
+    Choose 4 planets and vehicles: Find Queen Al Falcone.
+  </h2>
+  <div
+    className="selection-container"
+    id="planet-one"
+    style={
+      Object {
+        "display": "flex",
+      }
+    }
+  >
+    <Connect(Presentational)
+      key="1"
+    />
+  </div>
+  <div
+    className="selection-container"
+    id="planet-two"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+  >
+    <Connect(Presentational)
+      direction="row-reverse"
+      key="2"
+    />
+  </div>
+  <div
+    className="selection-container"
+    id="planet-three"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+  >
+    <Connect(Presentational)
+      key="3"
+    />
+  </div>
+  <div
+    className="selection-container"
+    id="planet-four"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+  >
+    <Connect(Presentational)
+      direction="row-reverse"
+      key="4"
+    />
+  </div>
+  <button
+    disabled={true}
+    id="submit-button"
+    onClick={[Function]}
+    type="submit"
+  >
+    Submit
+  </button>
+  <div
+    className="result-container"
+  />
+</section>
+`;
+
+exports[`Presentational <MainSection /> render() Renders three panels when two planets selected 1`] = `
+<section
+  className="main"
+>
+  <h2>
+    Choose 4 planets and vehicles: Find Queen Al Falcone.
+  </h2>
+  <div
+    className="selection-container"
+    id="planet-one"
+    style={
+      Object {
+        "display": "flex",
+      }
+    }
+  >
+    <Connect(Presentational)
+      key="1"
+    />
+  </div>
+  <div
+    className="selection-container"
+    id="planet-two"
+    style={
+      Object {
+        "display": "flex",
+      }
+    }
+  >
+    <Connect(Presentational)
+      direction="row-reverse"
+      key="2"
+    />
+  </div>
+  <div
+    className="selection-container"
+    id="planet-three"
+    style={
+      Object {
+        "display": "flex",
+      }
+    }
+  >
+    <Connect(Presentational)
+      key="3"
+    />
+  </div>
+  <div
+    className="selection-container"
+    id="planet-four"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+  >
+    <Connect(Presentational)
+      direction="row-reverse"
+      key="4"
+    />
+  </div>
+  <button
+    disabled={true}
+    id="submit-button"
+    onClick={[Function]}
+    type="submit"
+  >
+    Submit
+  </button>
+  <div
+    className="result-container"
+  />
+</section>
+`;
+
+exports[`Presentational <MainSection /> render() Renders two panels when one planets selected 1`] = `
+<section
+  className="main"
+>
+  <h2>
+    Choose 4 planets and vehicles: Find Queen Al Falcone.
+  </h2>
+  <div
+    className="selection-container"
+    id="planet-one"
+    style={
+      Object {
+        "display": "flex",
+      }
+    }
+  >
+    <Connect(Presentational)
+      key="1"
+    />
+  </div>
+  <div
+    className="selection-container"
+    id="planet-two"
+    style={
+      Object {
+        "display": "flex",
+      }
+    }
+  >
+    <Connect(Presentational)
+      direction="row-reverse"
+      key="2"
+    />
+  </div>
+  <div
+    className="selection-container"
+    id="planet-three"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+  >
+    <Connect(Presentational)
+      key="3"
+    />
+  </div>
+  <div
+    className="selection-container"
+    id="planet-four"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+  >
+    <Connect(Presentational)
+      direction="row-reverse"
+      key="4"
+    />
+  </div>
+  <button
+    disabled={true}
+    id="submit-button"
+    onClick={[Function]}
+    type="submit"
+  >
+    Submit
+  </button>
+  <div
+    className="result-container"
+  />
+</section>
+`;

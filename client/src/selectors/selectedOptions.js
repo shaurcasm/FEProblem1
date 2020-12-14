@@ -24,9 +24,3 @@ const selectedOptions = createSelector(
 );
 
 export default selectedOptions;
-/*
-'vehicle_names': vehicleArray.filter(vehicle => vehicle.selected === true).reduce((selected, vehicle) => {
-    selected.push(vehicle.name);
-    return selected
-}, [])
-*/

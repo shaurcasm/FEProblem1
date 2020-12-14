@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container <MainSection /> render() Renders the component 1`] = `
+<Presentational
+  error={null}
+  fetchPlanets={[Function]}
+  fetchVehicles={[Function]}
+  loading={false}
+  selectedOptions={
+    Object {
+      "planet_names": Array [],
+      "vehicle_names": Array [],
+    }
+  }
+  selectionPanelVisibility={
+    Object {
+      "fourth": "none",
+      "second": "none",
+      "submitButton": false,
+      "third": "none",
+    }
+  }
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+/>
+`;

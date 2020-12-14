@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Presentational <SelectionPanel /> render() Renders the default Selection Panel 1`] = `
+<div
+  className="selection-panel"
+  style={
+    Object {
+      "flexDirection": "row",
+    }
+  }
+>
+  <div
+    className="image-container"
+  >
+    <img
+      alt="Target Queen Al Falcone"
+      className="planet-image"
+      src="/images/misc/al-falcone.png"
+    />
+  </div>
+  <div
+    className="selectors-container"
+  >
+    <PlanetList
+      changeImage={[Function]}
+      planets={
+        Array [
+          Object {
+            "name": "Mercury",
+            "selected": false,
+          },
+          Object {
+            "name": "Venus",
+            "selected": false,
+          },
+          Object {
+            "name": "Earth",
+            "selected": false,
+          },
+          Object {
+            "name": "Mars",
+            "selected": false,
+          },
+        ]
+      }
+    />
+    <VehicleList
+      changeTime={[Function]}
+      distance={3000}
+    />
+  </div>
+</div>
+`;
+
+exports[`Presentational <SelectionPanel /> render() Renders the reversed Selection Panel 1`] = `
+<div
+  className="selection-panel"
+  style={
+    Object {
+      "flexDirection": "row-reverse",
+    }
+  }
+>
+  <div
+    className="image-container"
+  >
+    <img
+      alt="Target Queen Al Falcone"
+      className="planet-image"
+      src="/images/misc/al-falcone.png"
+    />
+  </div>
+  <div
+    className="selectors-container"
+  >
+    <PlanetList
+      changeImage={[Function]}
+      planets={
+        Array [
+          Object {
+            "name": "Mercury",
+            "selected": false,
+          },
+          Object {
+            "name": "Venus",
+            "selected": false,
+          },
+          Object {
+            "name": "Earth",
+            "selected": false,
+          },
+          Object {
+            "name": "Mars",
+            "selected": false,
+          },
+        ]
+      }
+    />
+    <VehicleList
+      changeTime={[Function]}
+      distance={3000}
+    />
+  </div>
+</div>
+`;

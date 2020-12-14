@@ -9,6 +9,7 @@ const FIND_API = "https://findfalcone.herokuapp.com/find";
 const app = express();
 const port = process.env.PORT || 9000;
 
+// Async function to get result from provided link, with selected Options as Body.
 const getResult = async (requestBody) => {
     var requestOptions = {
         method: 'POST',
@@ -22,6 +23,7 @@ const getResult = async (requestBody) => {
     return result;
 }
 
+// Async function get token from provided link.
 const getToken = async () => {
     var requestOptions = {
         method: 'POST',
@@ -38,15 +40,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/public', express.static(__dirname + '/public'));
 
+// Hosted by this server to process received UI input, getToken; send them to getResult.
 app.route('/api/getResult')
     .post(async (req, res) => {
         //console.log("Accessed api route.");
         var token = await getToken();
         //console.log("Completed Token.");
 
-        var attemptObject = {};
-        attemptObject['token'] = token;  // e.g. {'planetnames': [], 'vehiclenames':[]}
-        attemptObject['planet_names'] = req.body['planet_names'];    // e.g. {token: 'ladida', planetnames:[], vehiclenames:[]}
+        var attemptObject = {}; // e.g. {token: 'ladida', planetnames:[], vehiclenames:[]}
+        attemptObject['token'] = token;
+        attemptObject['planet_names'] = req.body['planet_names'];
         attemptObject['vehicle_names'] = req.body['vehicle_names'];
         //console.log("Attempt Object = " + JSON.stringify(attemptObject));
 

@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<VehicleList /> render() Renders the component 1`] = `
+<div
+  className="vehicles-container"
+  key="300"
+>
+  <label
+    className="sr-only"
+    htmlFor="vehicle-selector"
+  >
+    Choose a Vehicle from this list:
+  </label>
+  <input
+    autoCorrect="off"
+    list="range-300"
+    name="vehicle-selector"
+    onChange={[Function]}
+    placeholder="Pick a vehicle."
+    spellCheck="false"
+    type="text"
+  />
+  <datalist
+    className="vehicle-list"
+    id="range-300"
+  />
+</div>
+`;

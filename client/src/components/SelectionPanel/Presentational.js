@@ -4,10 +4,8 @@ import VehicleList from '../VehicleList';
 import { DEFAULT_SRC, DEFAULT_ALT, DEFAULT_RANGE, planetToImageSrcMatrix } from '../../constants/Misc.js';
 import './style.scss';
 
-// ToDo: Image Styling; Panel Styling.
-
 // Might not need container if redux state not used.
-const Presentational =  ({ planets, direction }) => {
+const Presentational =  ({ planets, vehicles, selectPlanets, selectVehicles, direction }) => {
     const [imageSource, setSource] = useState(DEFAULT_SRC);
     const [planetName, setName] = useState(DEFAULT_ALT);
     const [distanceToPlanet, setDistance] = useState(DEFAULT_RANGE);
@@ -53,8 +51,8 @@ const Presentational =  ({ planets, direction }) => {
                 </div>
             }
             <div className="selectors-container">
-                <PlanetList changeImage={changePlanetImage} />
-                <VehicleList distanceToPlanet={distanceToPlanet} changeTime={changeTime} />
+                <PlanetList planets={planets} select={selectPlanets} changeImage={changePlanetImage} />
+                <VehicleList vehicles={vehicles} select={selectVehicles} distance={distanceToPlanet} changeTime={changeTime} />
             </div>
         </div>
     )

@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PlanetList /> Renders the component 1`] = `
+<div
+  className="planet-list"
+>
+  <label
+    className="sr-only"
+    htmlFor="planet-selector"
+  >
+    Choose a Planet from this list:
+  </label>
+  <input
+    autoCorrect="off"
+    autoFocus={true}
+    list="available-planets"
+    name="planet-selector"
+    onChange={[Function]}
+    placeholder="Pick a Planet."
+    spellCheck="false"
+    type="text"
+  />
+  <datalist
+    id="available-planets"
+  >
+    <option
+      key="0"
+      value="Mercury"
+    >
+      Mercury
+    </option>
+    <option
+      key="1"
+      value="Venus"
+    >
+      Venus
+    </option>
+    <option
+      key="2"
+      value="Earth"
+    >
+      Earth
+    </option>
+    <option
+      key="3"
+      value="Mars"
+    >
+      Mars
+    </option>
+  </datalist>
+</div>
+`;

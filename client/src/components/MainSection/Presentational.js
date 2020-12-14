@@ -83,7 +83,7 @@ const Presentational = ({ loading, error, selectionPanelVisibility, selectedOpti
             <div id='planet-four' className="selection-container" style={{ display: selectionPanelVisibility.fourth }} >
                 <SelectionPanel direction="row-reverse" key='4' />
             </div>
-            <button id='submit-button' type='submit' disabled={selectionPanelVisibility.submitButton} onClick={onSubmit}>Submit</button>
+            <button id='submit-button' type='submit' disabled={!selectionPanelVisibility.submitButton} onClick={onSubmit}>Submit</button>
             <div ref={resultRef} className='result-container'></div>
         </section>
     );

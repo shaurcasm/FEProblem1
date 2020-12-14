@@ -20,7 +20,7 @@ const selectionPanelVisibility = createSelector(
                     second: "none",
                     third: "none",
                     fourth: "none",
-                    submitButton: true
+                    submitButton: false
                 }
                 break;
             case 1:
@@ -28,7 +28,7 @@ const selectionPanelVisibility = createSelector(
                     second: "flex",
                     third: "none",
                     fourth: "none",
-                    submitButton: true
+                    submitButton: false
                 }
                 break;
             case 2:
@@ -36,7 +36,7 @@ const selectionPanelVisibility = createSelector(
                     second: "flex",
                     third: "flex",
                     fourth: "none",
-                    submitButton: true
+                    submitButton: false
                 }
                 break;
             case 3:
@@ -44,7 +44,7 @@ const selectionPanelVisibility = createSelector(
                     second: "flex",
                     third: "flex",
                     fourth: "flex",
-                    submitButton: true
+                    submitButton: false
                 }
                 break;
             case 4:
@@ -52,7 +52,7 @@ const selectionPanelVisibility = createSelector(
                     second: "flex",
                     third: "flex",
                     fourth: "flex",
-                    submitButton: false
+                    submitButton: true
                 }
                 break;
             default:
@@ -60,7 +60,7 @@ const selectionPanelVisibility = createSelector(
                     second: "none",
                     third: "none",
                     fourth: "none",
-                    submitButton: true
+                    submitButton: false
                 }
                 break;
         }

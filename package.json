@@ -17,7 +17,10 @@
     "redux",
     "jest"
   ],
-  "author": "Shaurcasm",
+  "author": {
+    "name": "Shaurya S. Pal",
+    "email": "shaurya.singh.pal@gmail.com"
+  },
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
