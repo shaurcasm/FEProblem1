@@ -1,6 +1,8 @@
 /*
-We just need to press "w" to activate watch mode then press "u" to update 
-the snapshot.
+Notes:
+    1.  We just need to press "w" to activate watch mode then press "u" to update 
+        the snapshot.
+    2. Further React-redux testing research/practices: https://www.freecodecamp.org/news/testing-react-hooks/
 */
 
 import React from 'react';

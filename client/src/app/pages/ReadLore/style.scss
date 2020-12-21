@@ -1,0 +1,12 @@
+@import '../../colors.scss';
+
+.lore {
+    text-align: center;
+    font-size: 1.5rem;
+    color: $cultured;
+
+    #sign-off {
+        font-size: 1.8rem;
+        color: $light-green;
+    }
+}

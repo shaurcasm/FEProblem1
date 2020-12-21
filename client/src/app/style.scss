@@ -1,0 +1,153 @@
+@import './colors.scss';
+
+// box-shadow: {horizontal}px {vertical}px blur scale color
+@function duplicateShadows($number, $blur, $scale) {
+    // display size
+    $display-width: 2000;
+    $display-height: 2000;
+    
+    $value: '#{random($display-width)}px #{random($display-height)}px #{$blur}px #{$scale}px #{$cultured}';
+
+    @for $i from 0 to $number {
+        $value: '#{$value}, #{random($display-width)}px #{random($display-height)}px #{$blur}px #{$scale}px #{$cultured}';
+    }
+
+    @return unquote($value); 
+}
+
+html {
+    margin: 0;
+    font-size: 15px;
+    min-width: 100%;
+    min-height: 100%;
+    background: radial-gradient(ellipse farthest-corner at 100% 0%, black 0%, $xiketic 69%, $space-cadet 75%, $xiketic 90%);
+}
+
+.stars {
+    width: 1px;
+    height: 1px;
+    position: fixed;
+    background-color: transparent;
+    border-radius: 50%;
+}
+
+#small-stars {
+    box-shadow: duplicateShadows(1200, 0, 0);
+    animation: starryEyed 3s ease-out infinite;
+}
+
+#big-stars {
+    box-shadow: duplicateShadows(150, 1, 1);
+    animation: starryEyed 9s ease-in infinite;
+}
+
+body {
+    margin: 0;
+
+    // ToDo: Need to make it responsive.
+    #root {
+
+        .app-container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            height: auto;
+
+            header {
+                padding: 0 1.5vw;
+                margin: 0;
+                background-color: $cultured; 
+                color: $xiketic;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-end;
+
+                h1 {
+                    text-align: center;
+                    font-size: 3.6rem;
+                    margin-bottom: -13px;
+                }
+
+                #navigation {
+                    align-self: center;
+                    
+                    #nav-list {
+                        display: flex;
+                        flex-direction: row;
+
+                        .nav-link {
+                            padding-right: 2vw;
+                            padding-left: 2vw;
+                            list-style: none;
+                            font-size: 1.2rem;
+
+                            a {
+                                text-decoration: none;
+                                color: $xiketic;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .prologue-container {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            
+                p {
+                    margin: 0 6vw;
+                    color: $pumpkin;
+                    font-size: 1.5rem;
+                }
+            
+                #fractal-container {
+                    position: relative;
+            
+                    img {
+                        background: transparent;
+                        max-width: 330px;
+                        width: 45vw;
+                        height: auto;
+                    }
+                }
+            }
+
+            #main-container {
+                flex: 1 0 auto;
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                margin: 0 6vw;
+            }
+
+            footer {
+                height: 30px;
+                float: inline-end;
+                margin: 1vh 0;
+                width: 100%;
+                color: $cultured;
+                text-align: center;
+
+                a {
+                    color: $light-green;
+                }
+            }
+        }
+    }
+}
+
+// For fun parallax. Revert to twinkle animation.
+@keyframes starryEyed {
+    0% {
+        transform: translateX(0px);
+    }
+    50% {
+        transform: translateX(2px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
