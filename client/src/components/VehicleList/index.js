@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { DEFAULT_RANGE } from '../../constants/Misc.js';
+import PropTypes from 'prop-types';
 import './style.scss';
 
 const timeManagement = (distance, speed) => {
@@ -104,6 +105,13 @@ const VehicleList = ({ vehicles, select, distance, changeTime }) => {
             <datalist id={`range-${distance}`} className='vehicle-list'>{options}</datalist>
         </div>
     );
+}
+
+VehicleList.propTypes = {
+    vehicles: PropTypes.array,
+    select: PropTypes.objectOf(PropTypes.func),
+    distance: PropTypes.number.isRequired,
+    changeTime: PropTypes.func
 }
 
 export default VehicleList;

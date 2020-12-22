@@ -99,5 +99,3 @@ const selectForMe = (howMany, tempState) => {
     });
  })
  */
-
-expect(true).toBe(true)

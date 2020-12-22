@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PlanetList from '../PlanetList';
 import VehicleList from '../VehicleList';
 import { DEFAULT_SRC, DEFAULT_ALT, DEFAULT_RANGE, planetToImageSrcMatrix } from '../../constants/Misc.js';
+import PropTypes from 'prop-types';
 import './style.scss';
 
 // Might not need container if redux state not used.
@@ -57,5 +58,13 @@ const Presentational =  ({ planets, vehicles, selectPlanets, selectVehicles, dir
         </div>
     )
 }
+
+Presentational.propTypes = {
+    planets: PropTypes.array,
+    vehicles: PropTypes.array,
+    selectPlanets: PropTypes.objectOf(PropTypes.func),
+    selectVehicles: PropTypes.objectOf(PropTypes.func),
+    direction: PropTypes.string
+};
 
 export default Presentational;

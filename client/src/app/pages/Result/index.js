@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './style.scss';
 
 class Result extends React.Component {
@@ -12,7 +13,7 @@ class Result extends React.Component {
 
     handleResult(result) {
         if(result.error) {
-            return <p><span id='fail'>Error: </span>{result.error}</p>
+            return <p><span id='error'>Error: </span> <span id='error-message'>{result.error}</span></p>
         }
 
         else if(result.status === 'success') {
@@ -35,5 +36,9 @@ class Result extends React.Component {
         )
     }
 }
+
+Result.propTypes = {
+    location: PropTypes.object.isRequired
+};
 
 export default Result;

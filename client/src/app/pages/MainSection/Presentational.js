@@ -6,7 +6,7 @@ import { faSun } from '@fortawesome/free-solid-svg-icons';
 import { Redirect } from 'react-router-dom';
 import fetch from 'node-fetch';
 import './style.scss';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const Presentational = ({ loading, error, selectionPanelVisibility, selectedOptions, fetchPlanets, fetchVehicles }) => {
     const resultRef = useRef(null);
@@ -55,6 +55,7 @@ const Presentational = ({ loading, error, selectionPanelVisibility, selectedOpti
     if (error) {
         return (
             <div id='error'>
+                <span id='error-code'>{error.status}</span>
                 Error! {error.message}
             </div>
         )
@@ -78,7 +79,6 @@ const Presentational = ({ loading, error, selectionPanelVisibility, selectedOpti
     // Display each latter SectionalPanel after checking from selector.
     return (
         <section className="main">
-            <h2>Choose 4 planets and vehicles: Find Queen Al Falcone.</h2>
             <div id='planet-one' className="selection-container" style={{ display: "flex" }} >
                 <SelectionPanel key='1' />
             </div>
@@ -96,5 +96,17 @@ const Presentational = ({ loading, error, selectionPanelVisibility, selectedOpti
         </section>
     );
 }
+
+Presentational.propTypes = {
+    loading: PropTypes.bool,
+    error: PropTypes.object,
+    selectionPanelVisibility: PropTypes.object.isRequired,
+    selectedOptions: PropTypes.exact({
+        'planet_names': PropTypes.array,
+        'vehicle_names': PropTypes.array
+    }),
+    fetchPlanets: PropTypes.func,
+    fetchVehicles: PropTypes.func
+};
 
 export default Presentational;

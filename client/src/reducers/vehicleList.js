@@ -1,6 +1,6 @@
 import { FETCH_VEHICLES, SELECT_VEHICLE } from '../constants/ActionTypes';
 //import deepFreeze from 'deep-freeze';
-import produce from 'immer';
+import produce from 'immer';    // To manipulate redux state elements AND retain immutability.
 
 const INITIAL_STATE = {
     vehicleArray: [],

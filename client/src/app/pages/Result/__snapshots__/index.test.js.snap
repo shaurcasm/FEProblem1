@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Result /> Page Renders with a error result 1`] = `
+<div
+  className="result-container"
+>
+  We're in the endgame now.
+  <p>
+    <span
+      id="error"
+    >
+      Error: 
+    </span>
+     
+    <span
+      id="error-message"
+    >
+      Token is a satirical character in South Park.
+    </span>
+  </p>
+  Thank you for playing this Demo.
+</div>
+`;
+
+exports[`<Result /> Page Renders with a fail result 1`] = `
+<div
+  className="result-container"
+>
+  We're in the endgame now.
+  <p>
+    Mission 
+    <span
+      id="fail"
+    >
+      failed
+    </span>
+    ! We'll get her next time.
+  </p>
+  Thank you for playing this Demo.
+</div>
+`;
+
+exports[`<Result /> Page Renders with a success result 1`] = `
+<div
+  className="result-container"
+>
+  We're in the endgame now.
+  <p>
+    It's a 
+    <span
+      id="success"
+    >
+      success
+    </span>
+    ! Found Queen in 
+    <span
+      id="planet-name"
+    >
+      FooBar
+    </span>
+    .
+  </p>
+  Thank you for playing this Demo.
+</div>
+`;

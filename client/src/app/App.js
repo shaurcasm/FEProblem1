@@ -1,33 +1,16 @@
 /* TODO:
     4. React-router
-        4a. Reset function.
-        4b. Automate function.
-        4c. Read Lore function.
-    6. Result page.
-    7. Integrate completed background SCSS.
-    8. Integration tests.
+        4b. Automate function -> Luxury
+    8. Integration tests -> Future iteration.
     9. Build.
-
-    Focus: Main Section.
-    Off-focus: Header.
 
     Component is React.
     Container is Redux-attached React. Like oxidised React.
 
     Recycle Bin:
-    <header>
-      <h1>FINDING FALCONE</h1>
-      <div id="navigation">
-        <ul id="nav-list">
-          <li class="nav-link">Reset</li>
-          <li class="nav-link">Randomize</li>
-          <li class="nav-link">Read Lore</li>
-        </ul>
-      </div>
-    </header>
 */
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import MainSection from './pages/MainSection';
 import ReadLore from './pages/ReadLore';
@@ -44,16 +27,24 @@ import { resetVehicleList } from '../actions/selectVehicles.js';
 import './style.scss';
 
 const App = () => {
-    
+    const [needPrologue, setNeedPrologue] = useState(true);
     let dispatch = useDispatch();
     let location = useLocation();
 
-    const handleReset = (event) => {
+    const handleReset = () => {
         if(location.pathname === '/') {
             dispatch(resetPlanetList());
             dispatch(resetVehicleList());
         }
     }
+
+    useEffect(() => {
+        let path = location.pathname;
+        if(path === '/result' || path === '/read') {
+            setNeedPrologue(false);
+        }
+        else setNeedPrologue(true);
+    }, [location.pathname])
 
     return(
         <div className='app-container'>
@@ -71,7 +62,15 @@ const App = () => {
                 </nav>
             </header>
             <div className="prologue-container">
-                <p>This is a game of randomness</p>
+                <div id='prologue'>
+                    <h2>This is a Game of Chance</h2>
+                    { needPrologue &&
+                        <>
+                            <p>Choose 4 Planets from the 6 given; and vehicles to get there.</p>
+                            <p>Be careful! The vehicles are limited by their <span>Range</span> and <span>Quantity</span></p>
+                        </>
+                    }
+                </div>
                 <div id='fractal-container'>
                     <img src="/images/background/fractal.png" alt="Black Hole" id='blackhole' />
                 </div>

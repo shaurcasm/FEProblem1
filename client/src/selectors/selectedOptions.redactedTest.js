@@ -81,5 +81,3 @@ describe('Options Selector', () => {
     })
 })
 */
-
-expect(true).toBe(true)

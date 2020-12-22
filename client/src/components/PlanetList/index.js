@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import './style.scss';
 
 // Any datalist styling; 
@@ -72,6 +73,12 @@ const PlanetList = ({ planets, select, changeImage }) => {
             </datalist>
         </div>
     );
+}
+
+PlanetList.propTypes = {
+    planets: PropTypes.array,
+    select: PropTypes.objectOf(PropTypes.func),
+    changeImage: PropTypes.func
 }
 
 export default PlanetList;

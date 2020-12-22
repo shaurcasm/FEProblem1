@@ -4,9 +4,6 @@ exports[`Presentational <MainSection /> render() Renders all panels and enables 
 <section
   className="main"
 >
-  <h2>
-    Choose 4 planets and vehicles: Find Queen Al Falcone.
-  </h2>
   <div
     className="selection-container"
     id="planet-one"
@@ -79,9 +76,6 @@ exports[`Presentational <MainSection /> render() Renders four panels when three 
 <section
   className="main"
 >
-  <h2>
-    Choose 4 planets and vehicles: Find Queen Al Falcone.
-  </h2>
   <div
     className="selection-container"
     id="planet-one"
@@ -154,9 +148,6 @@ exports[`Presentational <MainSection /> render() Renders one Panel at default 1`
 <section
   className="main"
 >
-  <h2>
-    Choose 4 planets and vehicles: Find Queen Al Falcone.
-  </h2>
   <div
     className="selection-container"
     id="planet-one"
@@ -229,9 +220,6 @@ exports[`Presentational <MainSection /> render() Renders three panels when two p
 <section
   className="main"
 >
-  <h2>
-    Choose 4 planets and vehicles: Find Queen Al Falcone.
-  </h2>
   <div
     className="selection-container"
     id="planet-one"
@@ -304,9 +292,6 @@ exports[`Presentational <MainSection /> render() Renders two panels when one pla
 <section
   className="main"
 >
-  <h2>
-    Choose 4 planets and vehicles: Find Queen Al Falcone.
-  </h2>
   <div
     className="selection-container"
     id="planet-one"
