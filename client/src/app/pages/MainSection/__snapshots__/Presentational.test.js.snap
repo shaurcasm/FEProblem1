@@ -58,17 +58,18 @@ exports[`Presentational <MainSection /> render() Renders all panels and enables 
       key="4"
     />
   </div>
-  <button
-    disabled={false}
-    id="submit-button"
-    onClick={[Function]}
-    type="submit"
-  >
-    Submit
-  </button>
   <div
-    className="result-container"
-  />
+    className="button-container"
+  >
+    <button
+      disabled={false}
+      id="submit-button"
+      onClick={[Function]}
+      type="submit"
+    >
+      Launch
+    </button>
+  </div>
 </section>
 `;
 
@@ -130,17 +131,18 @@ exports[`Presentational <MainSection /> render() Renders four panels when three 
       key="4"
     />
   </div>
-  <button
-    disabled={true}
-    id="submit-button"
-    onClick={[Function]}
-    type="submit"
-  >
-    Submit
-  </button>
   <div
-    className="result-container"
-  />
+    className="button-container"
+  >
+    <button
+      disabled={true}
+      id="submit-button"
+      onClick={[Function]}
+      type="submit"
+    >
+      Launch
+    </button>
+  </div>
 </section>
 `;
 
@@ -202,17 +204,18 @@ exports[`Presentational <MainSection /> render() Renders one Panel at default 1`
       key="4"
     />
   </div>
-  <button
-    disabled={true}
-    id="submit-button"
-    onClick={[Function]}
-    type="submit"
-  >
-    Submit
-  </button>
   <div
-    className="result-container"
-  />
+    className="button-container"
+  >
+    <button
+      disabled={true}
+      id="submit-button"
+      onClick={[Function]}
+      type="submit"
+    >
+      Launch
+    </button>
+  </div>
 </section>
 `;
 
@@ -274,17 +277,18 @@ exports[`Presentational <MainSection /> render() Renders three panels when two p
       key="4"
     />
   </div>
-  <button
-    disabled={true}
-    id="submit-button"
-    onClick={[Function]}
-    type="submit"
-  >
-    Submit
-  </button>
   <div
-    className="result-container"
-  />
+    className="button-container"
+  >
+    <button
+      disabled={true}
+      id="submit-button"
+      onClick={[Function]}
+      type="submit"
+    >
+      Launch
+    </button>
+  </div>
 </section>
 `;
 
@@ -346,16 +350,17 @@ exports[`Presentational <MainSection /> render() Renders two panels when one pla
       key="4"
     />
   </div>
-  <button
-    disabled={true}
-    id="submit-button"
-    onClick={[Function]}
-    type="submit"
-  >
-    Submit
-  </button>
   <div
-    className="result-container"
-  />
+    className="button-container"
+  >
+    <button
+      disabled={true}
+      id="submit-button"
+      onClick={[Function]}
+      type="submit"
+    >
+      Launch
+    </button>
+  </div>
 </section>
 `;

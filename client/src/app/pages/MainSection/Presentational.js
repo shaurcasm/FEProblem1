@@ -1,5 +1,5 @@
 //Presentational code for Main Section
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SelectionPanel from '../../../components/SelectionPanel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun } from '@fortawesome/free-solid-svg-icons';
@@ -9,7 +9,6 @@ import './style.scss';
 import PropTypes from 'prop-types';
 
 const Presentational = ({ loading, error, selectionPanelVisibility, selectedOptions, fetchPlanets, fetchVehicles }) => {
-    const resultRef = useRef(null);
     const [redirect, setRedirect] = useState();
     const [result, setResult] = useState();
 
@@ -39,12 +38,11 @@ const Presentational = ({ loading, error, selectionPanelVisibility, selectedOpti
                 }
 
                 console.log("In React Result = " + JSON.stringify(data));
-                setResult(data);
-                setRedirect('/result');
+                setResult(data);        // set data state to be provided when redirecting to result page
+                setRedirect('/result'); // set local state to initiate rerender and redirect to result with above data.
                 return data;
             })
             .catch(error => {
-                resultRef.current.innerHTML = error.toString();
                 setResult({ error: error.toString() });
                 setRedirect('/result');
                 console.log('Error = ' + error)
@@ -68,7 +66,7 @@ const Presentational = ({ loading, error, selectionPanelVisibility, selectedOpti
             </div>
         )
     }
-    // Redirect to result page.
+    // Redirect to result page with received result data.
     if (redirect) {
         return <Redirect to={{
             pathname: redirect,
@@ -76,7 +74,7 @@ const Presentational = ({ loading, error, selectionPanelVisibility, selectedOpti
         }} />
     }
 
-    // Display each latter SectionalPanel after checking from selector.
+    // Display SectionalPanels one by one after checking from selector; Reverse display direction every alternate panel.
     return (
         <section className="main">
             <div id='planet-one' className="selection-container" style={{ display: "flex" }} >
@@ -91,12 +89,14 @@ const Presentational = ({ loading, error, selectionPanelVisibility, selectedOpti
             <div id='planet-four' className="selection-container" style={{ display: selectionPanelVisibility.fourth }} >
                 <SelectionPanel direction="row-reverse" key='4' />
             </div>
-            <button id='submit-button' type='submit' disabled={!selectionPanelVisibility.submitButton} onClick={onSubmit}>Submit</button>
-            <div ref={resultRef} className='result-container'></div>
+            <div className='button-container'>
+                <button id='submit-button' type='submit' disabled={!selectionPanelVisibility.submitButton} onClick={onSubmit}>Launch</button>
+            </div>
         </section>
     );
 }
 
+// PropType description to ensure structure.
 Presentational.propTypes = {
     loading: PropTypes.bool,
     error: PropTypes.object,

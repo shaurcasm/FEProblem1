@@ -63,7 +63,7 @@ const App = () => {
             </header>
             <div className="prologue-container">
                 <div id='prologue'>
-                    <h2>This is a Game of Chance</h2>
+                    <h2>Game of Chance</h2>
                     { needPrologue &&
                         <>
                             <p>Choose 4 Planets from the 6 given; and vehicles to get there.</p>

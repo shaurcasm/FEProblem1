@@ -1,5 +1,6 @@
 //Import fonts etc.
 @import '../../colors.scss';
+@import '../../responsive.scss';
 
 #loading {
     margin: auto;
@@ -12,47 +13,71 @@
 }
 
 .main {
-    margin: 0 1vw;
-    padding: 0 2vh;
     max-width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    h2 {
-        color: $pumpkin;
-        font-size: 1.5rem;
-    }
     
     .selection-container {
+        width: 100%;
+        margin: 3vh 0;
         display: flex;
         flex-direction: column;
         height: auto;
-        width: 100%;
-        max-width: 100vw;
-        margin: 3vmin 0;
+    }
 
-        h3 {
-            color: $cultured;
+    .button-container {
+        width: 24vmax;
+        height: 24vmax;
+        margin: 3vh 0;
+        align-self: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        button {
+            width: 21vmin;
+            height: 21vmin;
+            min-width: 120px;
+            min-height: 120px;
+            font-size: 1.5rem;
+            background-color: $light-green;
+            color: $xiketic;
+            border-radius: 50%;
+            border-color: transparent;
+            text-align: center;
+            user-select: none;
+            outline: none;
+    
+            &:disabled {
+                background-color: transparent;
+                color: transparent;
+            }
+    
+            &:hover:enabled {
+                animation-name: hover-color;
+                animation-duration: 1s;
+                animation-fill-mode: forwards;
+            }
+    
+            &:active:enabled {
+                width: 18vmin;
+                height: 18vmin;
+                font-size: 1.2rem;
+            }
+    
+            @include xs {
+                min-width: 60px;
+                min-height: 60px;
+            }
         }
     }
 
-    button {
-        width: 12vw;
-        height: 4vh;
-        min-width: 150px;
-        min-height: 45px;
-        align-self: center;
-        margin: 3vmin;
-        font-size: 1.2rem;
-        color: $xiketic;
-    }
+}
 
-    .result-container {
-        font-size: 1.2rem;
-        color: $pumpkin;
-        margin: 6vh;
-        text-align: center;
+@keyframes hover-color {
+    100% {
+        background-color: darken($color: $light-green, $amount: 30);
     }
 }

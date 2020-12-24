@@ -13,7 +13,7 @@ class Result extends React.Component {
 
     handleResult(result) {
         if(result.error) {
-            return <p><span id='error'>Error: </span> <span id='error-message'>{result.error}</span></p>
+            return <p><span id='error'>Error</span>: <span id='error-message'>{result.error}</span></p>
         }
 
         else if(result.status === 'success') {
@@ -30,8 +30,9 @@ class Result extends React.Component {
 
         return(
             <div className='result-container'>
-                We're in the endgame now.{this.handleResult(result)}
-                Thank you for playing this Demo.
+                We're in the endgame now...{this.handleResult(result)}
+                Thank you for playing this Demo!
+                <p>Hit Reset to try again.</p>
             </div>
         )
     }

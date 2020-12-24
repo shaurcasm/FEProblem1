@@ -16,7 +16,7 @@ exports[`<VehicleList /> render() Renders the component 1`] = `
     list="range-300"
     name="vehicle-selector"
     onChange={[Function]}
-    placeholder="Pick a vehicle."
+    placeholder="Pick a vehicle"
     spellCheck="false"
     type="text"
   />

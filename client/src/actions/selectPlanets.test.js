@@ -18,7 +18,7 @@ describe('Testing Actions that Select Planets', () => {
         expect(replacePlanet(planetDeux, planetUn)).toStrictEqual({ type: SELECT_PLANET.REPLACE, newPlanetName: planetDeux, previousPlanetName: planetUn });
     });
 
-    test('Send Action to Reset Planet state(Currently not used)', () => {
+    test('Send Action to Reset Planet state', () => {
 
         expect(resetPlanetList()).toStrictEqual({ type: SELECT_PLANET.RESET });
     });

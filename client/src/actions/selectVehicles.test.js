@@ -18,7 +18,7 @@ describe('Testing Actions that Select Vehicles', () => {
         expect(replaceVehicle(vehicleDeux, vehicleUn)).toStrictEqual({ type: SELECT_VEHICLE.REPLACE, newVehicleName: vehicleDeux, previousVehicleName: vehicleUn });
     });
 
-    test('Send Action to Reset vehicle state(Currently not used)', () => {
+    test('Send Action to Reset vehicle state', () => {
 
         expect(resetVehicleList()).toStrictEqual({ type: SELECT_VEHICLE.RESET });
     });

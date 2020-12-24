@@ -36,11 +36,15 @@ const initialState = {
         error: null
     }
 }
-const store = mockStore(initialState);
 
 describe('Container <MainSection />', () => {
+    let store;
 
     describe('render()', () => {
+
+        beforeEach(() => {
+            store = mockStore(initialState);
+        })
 
         test('Renders the component', () => {
 

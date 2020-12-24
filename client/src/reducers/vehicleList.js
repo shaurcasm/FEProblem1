@@ -1,10 +1,11 @@
 import { FETCH_VEHICLES, SELECT_VEHICLE } from '../constants/ActionTypes';
-//import deepFreeze from 'deep-freeze';
+import { OFFLINE_VEHICLES } from '../constants/Nouns';
 import produce from 'immer';    // To manipulate redux state elements AND retain immutability.
+//import deepFreeze from 'deep-freeze';
 
 const INITIAL_STATE = {
-    vehicleArray: [],
-    initialVehicleArray: [],
+    vehicleArray: OFFLINE_VEHICLES,
+    initialVehicleArray: OFFLINE_VEHICLES,
     loading: false,
     error: null
 };
@@ -31,7 +32,6 @@ const vehicleList = (state = INITIAL_STATE, action) =>
             case FETCH_VEHICLES.FAILURE:
                 draft.loading = false;
                 draft.error = action.payload.error;
-                draft.vehicleArray = [];
                 break;
 
             case SELECT_VEHICLE.ADD:

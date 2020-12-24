@@ -25,7 +25,7 @@ const ReadLore = () => (
         </p>
         <p>
             King Shan appointed YOU, to search for her through the Tara System. Don't take it 
-            as recommendation. It is merely an amusement for him, and your team was the most... peripheral. 
+            as a recommendation. It is merely an amusement for him, and your team was the most... peripheral. 
             You will not be given infinite resources for this task. Our King is rational, and won't expend 
             resources meant for the people, on a rebel.
         </p>

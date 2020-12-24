@@ -1,4 +1,5 @@
 @import '../../app/colors.scss';
+@import '../../app/responsive.scss';
 
 .sr-only {
     position: absolute;
@@ -13,12 +14,21 @@
     margin: 1.5vh 0;
 
     input {
+        min-width: 150px;
+        min-height: 45px;
+        width: 21vw;
+        height: 6vh;
         background-color: $cultured;
-        border-color: $space-cadet;
-        width: 150px;
-        height: 30px;
-        font-size: 1.2rem;
+        border-color: $xiketic;
+        font-size: 1.4rem;
         color: $space-cadet;
         text-indent: 1vw;
+        outline-style: hidden;
+        outline-color: $liberty;
+
+        @include xs {
+            min-width: 111px;
+            max-height: 36px;
+        }
     }
 }

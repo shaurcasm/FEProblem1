@@ -16,7 +16,7 @@ exports[`<PlanetList /> Renders the component 1`] = `
     list="available-planets"
     name="planet-selector"
     onChange={[Function]}
-    placeholder="Pick a Planet."
+    placeholder="Pick a Planet"
     spellCheck="false"
     type="text"
   />

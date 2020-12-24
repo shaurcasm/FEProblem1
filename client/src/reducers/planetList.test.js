@@ -1,5 +1,6 @@
 import reducer from './planetList';
-import { FETCH_PLANETS, SELECT_PLANET } from '../constants/ActionTypes'
+import { FETCH_PLANETS, SELECT_PLANET } from '../constants/ActionTypes';
+import { OFFLINE_PLANETS } from '../constants/Nouns';
 
 describe('planetList Reducer', () => {
 
@@ -12,7 +13,7 @@ describe('planetList Reducer', () => {
                     type: FETCH_PLANETS.BEGIN
                 })
             ).toEqual({
-                planetArray: [],
+                planetArray: OFFLINE_PLANETS,
                 loading: true,
                 error: null
             });
@@ -51,7 +52,7 @@ describe('planetList Reducer', () => {
                     payload: { error: 'This is a simulation.' }
                 })
             ).toEqual({
-                planetArray: [],
+                planetArray: OFFLINE_PLANETS,
                 loading: false,
                 error: 'This is a simulation.'
             });
@@ -62,7 +63,7 @@ describe('planetList Reducer', () => {
                     payload: { error: 'Choose the red pill.' }
                 })
             ).toEqual({
-                planetArray: [],
+                planetArray: OFFLINE_PLANETS,
                 loading: false,
                 error: 'Choose the red pill.'
             });
@@ -74,7 +75,7 @@ describe('planetList Reducer', () => {
         test('Should return initial state', () => {
 
             expect(reducer(undefined, {})).toEqual({
-                planetArray: [],
+                planetArray: OFFLINE_PLANETS,
                 loading: false,
                 error: null
             })

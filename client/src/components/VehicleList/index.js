@@ -97,7 +97,7 @@ const VehicleList = ({ vehicles, select, distance, changeTime }) => {
                 type="text"
                 list={`range-${distance}`}
                 name="vehicle-selector"
-                placeholder="Pick a vehicle."
+                placeholder="Pick a vehicle"
                 onChange={inputValidation}
                 autoCorrect="off"
                 spellCheck="false"

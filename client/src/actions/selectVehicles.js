@@ -6,6 +6,7 @@ export const addVehicle = vehicleName => ({
     vehicleName
 });
 
+// Function(arg1, arg2): arg1 -> New Vehicle; arg2 -> Previous Vehicle
 export const replaceVehicle = (newVehicleName, previousVehicleName) => ({
     type: SELECT_VEHICLE.REPLACE,
     newVehicleName,

@@ -6,6 +6,7 @@ export const addPlanet = planetName => ({
     planetName
 });
 
+// Function(arg1, arg2): arg1 -> New Planet; arg2 -> Previous Planet
 export const replacePlanet = (newPlanetName, previousPlanetName) => ({
     type: SELECT_PLANET.REPLACE,
     newPlanetName,

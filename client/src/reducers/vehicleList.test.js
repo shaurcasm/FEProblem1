@@ -1,5 +1,6 @@
 import reducer from './vehicleList';
-import { FETCH_VEHICLES, SELECT_VEHICLE } from '../constants/ActionTypes'
+import { FETCH_VEHICLES, SELECT_VEHICLE } from '../constants/ActionTypes';
+import { OFFLINE_VEHICLES } from '../constants/Nouns';
 
 describe('vehicleList Reducer', () => {
 
@@ -12,8 +13,8 @@ describe('vehicleList Reducer', () => {
                     type: FETCH_VEHICLES.BEGIN
                 })
             ).toEqual({
-                vehicleArray: [],
-                initialVehicleArray: [],
+                vehicleArray: OFFLINE_VEHICLES,
+                initialVehicleArray: OFFLINE_VEHICLES,
                 loading: true,
                 error: null
             });
@@ -54,8 +55,8 @@ describe('vehicleList Reducer', () => {
                     payload: { error: 'This is a simulation.' }
                 })
             ).toEqual({
-                vehicleArray: [],
-                initialVehicleArray: [],
+                vehicleArray: OFFLINE_VEHICLES,
+                initialVehicleArray: OFFLINE_VEHICLES,
                 loading: false,
                 error: 'This is a simulation.'
             });
@@ -66,8 +67,8 @@ describe('vehicleList Reducer', () => {
                     payload: { error: 'Choose the red pill.' }
                 })
             ).toEqual({
-                vehicleArray: [],
-                initialVehicleArray: [],
+                vehicleArray: OFFLINE_VEHICLES,
+                initialVehicleArray: OFFLINE_VEHICLES,
                 loading: false,
                 error: 'Choose the red pill.'
             });
@@ -79,8 +80,8 @@ describe('vehicleList Reducer', () => {
         test('Should return initial state', () => {
 
             expect(reducer(undefined, {})).toEqual({
-                vehicleArray: [],
-                initialVehicleArray: [],
+                vehicleArray: OFFLINE_VEHICLES,
+                initialVehicleArray: OFFLINE_VEHICLES,
                 loading: false,
                 error: null
             })

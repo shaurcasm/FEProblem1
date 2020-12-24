@@ -1,8 +1,9 @@
 import { FETCH_PLANETS, SELECT_PLANET } from '../constants/ActionTypes';
+import { OFFLINE_PLANETS } from '../constants/Nouns';
 import produce from 'immer';
 
 const INITIAL_STATE = {
-    planetArray: [],
+    planetArray: OFFLINE_PLANETS,
     loading: false,
     error: null
 };
@@ -25,7 +26,6 @@ const planetList = (state = INITIAL_STATE, action) => produce(state, draft => {
         case FETCH_PLANETS.FAILURE:
             draft.loading = false;
             draft.error = action.payload.error;
-            draft.planetArray = [];
             break;
 
         case SELECT_PLANET.ADD:

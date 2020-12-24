@@ -4,21 +4,24 @@ exports[`<Result /> Page Renders with a error result 1`] = `
 <div
   className="result-container"
 >
-  We're in the endgame now.
+  We're in the endgame now...
   <p>
     <span
       id="error"
     >
-      Error: 
+      Error
     </span>
-     
+    : 
     <span
       id="error-message"
     >
       Token is a satirical character in South Park.
     </span>
   </p>
-  Thank you for playing this Demo.
+  Thank you for playing this Demo!
+  <p>
+    Hit Reset to try again.
+  </p>
 </div>
 `;
 
@@ -26,7 +29,7 @@ exports[`<Result /> Page Renders with a fail result 1`] = `
 <div
   className="result-container"
 >
-  We're in the endgame now.
+  We're in the endgame now...
   <p>
     Mission 
     <span
@@ -36,7 +39,10 @@ exports[`<Result /> Page Renders with a fail result 1`] = `
     </span>
     ! We'll get her next time.
   </p>
-  Thank you for playing this Demo.
+  Thank you for playing this Demo!
+  <p>
+    Hit Reset to try again.
+  </p>
 </div>
 `;
 
@@ -44,7 +50,7 @@ exports[`<Result /> Page Renders with a success result 1`] = `
 <div
   className="result-container"
 >
-  We're in the endgame now.
+  We're in the endgame now...
   <p>
     It's a 
     <span
@@ -60,6 +66,9 @@ exports[`<Result /> Page Renders with a success result 1`] = `
     </span>
     .
   </p>
-  Thank you for playing this Demo.
+  Thank you for playing this Demo!
+  <p>
+    Hit Reset to try again.
+  </p>
 </div>
 `;
