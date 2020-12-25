@@ -83,17 +83,28 @@ body {
                     margin-right: 3vw;
                     
                     #nav-list {
+                        height: 6vh;
+                        margin: 0;
+                        padding: 0;
                         display: flex;
                         flex-direction: row;
+                        justify-content: space-between;
+                        align-items: center;
 
                         .nav-link {
-                            margin: 0 3vw;
+                            width: 15vw;
+                            height: auto;
                             list-style: none;
-                            font-size: 1.5rem;
+                            text-align: center;
 
                             a {
                                 text-decoration: none;
                                 color: $xiketic;
+                                font-size: 1.8rem;
+
+                                &:hover {
+                                    font-size: 1.5rem;
+                                }
                             }
                         }
                     }
