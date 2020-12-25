@@ -1,3 +1,5 @@
+// Useful for tests bypassing fetch.
+
 // Planets
 export const OFFLINE_PLANETS = [
     { name: 'Donlon', distance: 100, selected: false },

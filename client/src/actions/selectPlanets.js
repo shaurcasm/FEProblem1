@@ -1,4 +1,4 @@
-import { SELECT_PLANET } from '../constants/ActionTypes';
+import { SELECT_PLANET } from '../constants/actionTypes.js';
 
 // Planet List
 export const addPlanet = planetName => ({

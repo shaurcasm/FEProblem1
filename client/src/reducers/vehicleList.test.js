@@ -1,6 +1,6 @@
 import reducer from './vehicleList';
-import { FETCH_VEHICLES, SELECT_VEHICLE } from '../constants/ActionTypes';
-import { OFFLINE_VEHICLES } from '../constants/Nouns';
+import { FETCH_VEHICLES, SELECT_VEHICLE } from '../constants/actionTypes.js';
+import { OFFLINE_VEHICLES } from '../constants/nouns.js';
 
 describe('vehicleList Reducer', () => {
 

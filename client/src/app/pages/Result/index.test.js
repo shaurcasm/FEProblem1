@@ -33,6 +33,7 @@ describe('<Result /> Page', () => {
     });
 
     test('Renders with a error result', () => {
+        
         var errorMessage = 'Token is a satirical character in South Park.';
         var mockLocation = {
             state: {

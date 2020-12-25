@@ -62,8 +62,6 @@ const PlanetList = ({ planets, select, changeImage }) => {
         )        
     });
     
-    // Comment: PlanetList component's datalist didn't need dynamic ID to function properly, for currently unknown reason.
-    // Unlike VehicleList, yet they both were applied once by multiple sectional components.
     return (
         <div className='planet-list'>
             <label htmlFor='planet-selector' className='sr-only'>Choose a Planet from this list:</label>

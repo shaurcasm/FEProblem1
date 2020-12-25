@@ -1,14 +1,4 @@
-/* TODO:
-    4. React-router
-        4b. Automate function -> Luxury
-    8. Integration tests -> Future iteration.
-    9. Build.
-
-    Component is React.
-    Container is Redux-attached React. Like oxidised React.
-
-    Recycle Bin:
-*/
+// Core SPA.
 
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -90,7 +80,7 @@ const App = () => {
                 </Switch>
             </div>
             <footer id='footer'>
-                Copyright © Geektrust 2020. Original Fractal Image by <a href="https://pixabay.com/users/insspirito-1851261/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1280110">Garik Barseghyan</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1280110">Pixabay</a>.
+                Copyright © Shaurya S. Pal 2020. Original Blackhole Image by <a href="https://pixabay.com/users/insspirito-1851261/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1280110">Garik Barseghyan</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1280110">Pixabay</a>.
             </footer>
         </div>
     );

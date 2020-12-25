@@ -1,6 +1,6 @@
 import reducer from './planetList';
-import { FETCH_PLANETS, SELECT_PLANET } from '../constants/ActionTypes';
-import { OFFLINE_PLANETS } from '../constants/Nouns';
+import { FETCH_PLANETS, SELECT_PLANET } from '../constants/actionTypes.js';
+import { OFFLINE_PLANETS } from '../constants/nouns.js';
 
 describe('planetList Reducer', () => {
 

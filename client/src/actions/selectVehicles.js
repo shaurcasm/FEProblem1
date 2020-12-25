@@ -1,4 +1,4 @@
-import { SELECT_VEHICLE } from '../constants/ActionTypes.js';
+import { SELECT_VEHICLE } from '../constants/actionTypes.js';
 
 // Vehicle List
 export const addVehicle = vehicleName => ({

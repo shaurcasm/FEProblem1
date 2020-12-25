@@ -1,5 +1,5 @@
 import { addVehicle, replaceVehicle, resetVehicleList } from './selectvehicles.js';
-import { SELECT_VEHICLE } from '../constants/ActionTypes';
+import { SELECT_VEHICLE } from '../constants/actionTypes.js';
 
 describe('Testing Actions that Select Vehicles', () => {
 

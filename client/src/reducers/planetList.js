@@ -1,7 +1,8 @@
-import { FETCH_PLANETS, SELECT_PLANET } from '../constants/ActionTypes';
-import { OFFLINE_PLANETS } from '../constants/Nouns';
+import { FETCH_PLANETS, SELECT_PLANET } from '../constants/actionTypes.js';
+import { OFFLINE_PLANETS } from '../constants/nouns.js';
 import produce from 'immer';
 
+// Inititalise with offline planets constant.
 const INITIAL_STATE = {
     planetArray: OFFLINE_PLANETS,
     loading: false,
@@ -9,6 +10,7 @@ const INITIAL_STATE = {
 };
 
 const planetList = (state = INITIAL_STATE, action) => produce(state, draft => {
+    // Don't need default case when using immer.
     // eslint-disable-next-line default-case
     switch(action.type) {
         case FETCH_PLANETS.BEGIN:

@@ -1,5 +1,5 @@
-import { FETCH_PLANETS } from '../constants/ActionTypes.js';
-import { PLANETS_API } from '../constants/Misc.js';   // Contains the URL to the API
+import { FETCH_PLANETS } from '../constants/actionTypes.js';
+import { PLANETS_API } from '../constants/misc.js';   // Contains the URL to the API
 import fetch from 'node-fetch';
 
 export const fetchPlanetsBegin = () => ({

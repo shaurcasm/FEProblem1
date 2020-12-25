@@ -1,5 +1,5 @@
 import { addPlanet, replacePlanet, resetPlanetList } from './selectPlanets.js';
-import { SELECT_PLANET } from '../constants/ActionTypes';
+import { SELECT_PLANET } from '../constants/actionTypes.js';
 
 describe('Testing Actions that Select Planets', () => {
 

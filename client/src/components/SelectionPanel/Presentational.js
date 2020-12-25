@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import PlanetList from '../PlanetList';
 import VehicleList from '../VehicleList';
-import { DEFAULT_SRC, DEFAULT_ALT, DEFAULT_RANGE, planetToImageSrcMatrix } from '../../constants/Misc.js';
+import { DEFAULT_SRC, DEFAULT_ALT, DEFAULT_RANGE, planetToImageSrcMatrix } from '../../constants/misc.js';
 import PropTypes from 'prop-types';
 import './style.scss';
 
-// Might not need container if redux state not used.
 const Presentational =  ({ planets, vehicles, selectPlanets, selectVehicles, direction }) => {
     const [imageSource, setSource] = useState(DEFAULT_SRC);
     const [planetName, setName] = useState(DEFAULT_ALT);
@@ -40,6 +39,8 @@ const Presentational =  ({ planets, vehicles, selectPlanets, selectVehicles, dir
         //console.log(distanceToPlanet);
     }, [planetName, planets]);
 
+    // Reverse flex-direction for alternate panels. Display time to reach planet when both planet, vehicle selected
+    // and time-to-reach is calculated.
     return (
         <div style={{flexDirection: reverseOrNot}} className="selection-panel">
             <div className="image-container">

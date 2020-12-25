@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { DEFAULT_RANGE } from '../../constants/Misc.js';
+import { DEFAULT_RANGE } from '../../constants/misc.js';
 import PropTypes from 'prop-types';
 import './style.scss';
 

@@ -1,4 +1,5 @@
 //Presentational code for Main Section
+
 import React, { useEffect, useState } from 'react';
 import SelectionPanel from '../../../components/SelectionPanel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,7 +13,11 @@ const Presentational = ({ loading, error, selectionPanelVisibility, selectedOpti
     const [redirect, setRedirect] = useState();
     const [result, setResult] = useState();
 
-    // ComponentDidMount() but for functional component.
+    /*
+        ComponentDidMount() but for functional component.
+        i.e. Carry out fetching everytime this component is mounted
+        or the functions are changed.
+    */
     useEffect(() => {
         fetchPlanets();
         fetchVehicles();

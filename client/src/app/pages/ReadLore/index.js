@@ -1,6 +1,7 @@
 import React from 'react';
 import './style.scss';
 
+// Just a static page. Testing redundant.
 const ReadLore = () => (
     <div className='lore'>
         <p>
