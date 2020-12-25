@@ -51,3 +51,11 @@ Tests the client-side App.
 1. Server-side rendering. Improves React app's Google search performance.
 2. Automate user input Link/Functionality. Redundant Luxury/Useful for external testers.
 3. Parallax scrolling.
+
+### Heroku deployment:
+1. **start** script should run main server.
+2. **heroku-postbuild** script should install the client dependencies and run build script.
+3. In Heroku...
+    - In profile, head to New > Create new app.
+    - Give it a name.
+    - Click on deploy tab and follow instructions.
