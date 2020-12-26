@@ -4,7 +4,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const fetch = require('node-fetch');
-const helmet = require('helmet');
 
 const TOKEN_API = "https://findfalcone.herokuapp.com/token";
 const FIND_API = "https://findfalcone.herokuapp.com/find";
@@ -41,19 +40,6 @@ const getToken = async () => {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(helmet({
-    frameguard: {
-        action: 'deny'
-    },
-    contentSecurityPolicy: {
-        directives: {
-            defaultSrc: ["'self'"],
-        },
-        frameguard: {
-            action: 'deny'
-        }
-    }
-}));
 app.use('/public', express.static(__dirname + '/public'));
 
 // Hosted by this server to process received UI input, getToken; send them to getResult.

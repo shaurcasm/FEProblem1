@@ -37,14 +37,24 @@ html {
     overflow: hidden;
 }
 
-#small-stars {
-    box-shadow: duplicateShadows(1200, 0, 0);
+#small-stars1 {
+    box-shadow: duplicateShadows(300, 0, 0);
+    animation: starryEyed 3s ease-in infinite;
+}
+
+#small-stars2 {
+    box-shadow: duplicateShadows(300, 0, 0);
     animation: starryEyed 3s ease-out infinite;
 }
 
+#small-stars3 {
+    box-shadow: duplicateShadows(300, 0, 0);
+    animation: starryEyed 6s ease-in-out infinite;
+}
+
 #big-stars {
-    box-shadow: duplicateShadows(150, 2, 2);
-    animation: starryEyed 9s ease-in infinite;
+    box-shadow: duplicateShadows(150, 2, 1);
+    animation: starryEyed 6s ease-in infinite;
 }
 
 body {
