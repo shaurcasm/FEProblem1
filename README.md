@@ -2,11 +2,6 @@
 
 A project for Geektrust Front-End Problem 1.
 
-## ToDo:
-1. Prepare to build.
-    b. send to geektrust, unauthored.
-    c. and upload to heroku/github, authored.
-
 ## Problem Details
 
 Find Queen Falcone...
@@ -27,6 +22,7 @@ Installs express server dependencies and post-install, installs client React app
 
 > npm start
 
+Starts the Dev build.
 Concurrently start the server and the single page app or client. Client must have the proxy(in package.json) set to server's
 port
 
@@ -45,17 +41,3 @@ Build script used for Heroku.
 Tests the client-side App.
 
 ## Notes:
-
-### Possible updates:
-
-1. Server-side rendering. Improves React app's Google search performance.
-2. Automate user input Link/Functionality. Redundant Luxury/Useful for external testers.
-3. Parallax scrolling.
-
-### Heroku deployment:
-1. **start** script should run main server.
-2. **heroku-postbuild** script should install the client dependencies and run build script.
-3. In Heroku...
-    - In profile, head to New > Create new app.
-    - Give it a name.
-    - Click on deploy tab and follow instructions.
