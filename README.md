@@ -1,6 +1,10 @@
 # Finding Falcone
 
-A project for Geektrust Front-End Problem 1.
+## About
+
+A Fullstack project for Geektrust Front-End Problem 1.
+
+Heroku app link: [Finding Falcone](https://finding-queen-falcone.herokuapp.com/)
 
 ## Problem Details
 
@@ -16,7 +20,7 @@ Find Queen Falcone...
 
 > npm install
 
-Installs express server dependencies and post-install, installs client React app dependencies.
+Installs express server dependencies and "post-install", installs client React app dependencies.
 
 ### Development Script
 
@@ -30,7 +34,11 @@ port
 
 .env file > NODE_ENV=production
 
+To build the client:
 > npm run heroku-postbuild
+
+To serve the client:
+> npm run server
 
 Build script used for Heroku.
 
