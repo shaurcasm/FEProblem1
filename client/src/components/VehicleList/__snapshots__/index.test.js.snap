@@ -23,6 +23,31 @@ exports[`<VehicleList /> render() Renders the component 1`] = `
   <datalist
     className="vehicle-list"
     id="range-300"
-  />
+  >
+    <option
+      key="500"
+      value="Mercury Star Runner"
+    >
+      Mercury Star Runner
+       X 
+      3
+    </option>
+    <option
+      key="400"
+      value="Millenium Falcon"
+    >
+      Millenium Falcon
+       X 
+      3
+    </option>
+    <option
+      key="300"
+      value="Normandy"
+    >
+      Normandy
+       X 
+      3
+    </option>
+  </datalist>
 </div>
 `;

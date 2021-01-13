@@ -1,28 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import timeManagement from '../../utilities/timeManagement.js';
+import inputValidation from '../../utilities/inputValidation.js';
 import './style.scss';
 
 const VehicleList = ({ vehicles, select, distance, changeTime }) => {
     const [selectedVehicle, setSelection] = useState('');
     const [previousSelection, setPrevious] = useState('');
-    const [options, setOptions] = useState([]); // To Keep track of options even after re-renders.
-
-    // Update/Re-render options everytime the distance Props or Redux state Vehicles are changed.
-    useEffect(() => {
-        setOptions([])
-        var tempOptions = [];
-        vehicles.forEach(vehicle => {
-            if((vehicle['total_no'] > 0) && (vehicle['max_distance'] >= distance)) {
-                let option = 
-                <option key={vehicle["max_distance"]} value={vehicle.name}>
-                    {vehicle.name} X {vehicle["total_no"]}
-                </option>
-                tempOptions.push(option);
-            }  
-        });
-        setOptions([...tempOptions]);
-    }, [distance, vehicles]);
 
     // Redux state management for Vehicles. 
     useEffect(() => {
@@ -41,49 +24,32 @@ const VehicleList = ({ vehicles, select, distance, changeTime }) => {
         }
     }, [previousSelection, select, selectedVehicle]);
 
-    // Valuable code. Validating Datalist input.
-    // When the value of the input changes...
-    const inputValidation = (event) => {
-        var optionFound = false,
-            input = event.target,
-            datalist = input.list;
-        
-        // Determine whether an option exists with the current value of the input.
-        for (let j = 0; j < datalist.options.length; j++) {
-            let optionValue = datalist.options[j].value;
-            if(input.value.toUpperCase() === optionValue.toUpperCase()) {
-                optionFound = true;
-                setSelection(optionValue);
-                let vehicleSpeed = vehicles.filter(vehicle => vehicle.name === optionValue)[0].speed;
-                let time = timeManagement(distance, vehicleSpeed);
-                changeTime(time);
-                break;
-            }
-        }
-        // Use the setCustomValidity function of the validation API
-        // to provide a user feedback if the value does not exist in the datalist.
-        optionFound ? 
-            input.setCustomValidity('') :
-            input.setCustomValidity('Please select a valid Vehicle');
-        input.reportValidity();
-    }
+    const validate = event => inputValidation(event, vehicles, setSelection, changeTime, distance);
+
+    const options = vehicles.filter(vehicle => (
+        (vehicle['total_no'] > 0 && vehicle['max_distance'] >= distance) ? true : false
+    )).map(vehicle => (
+        <option key={vehicle['max_distance']} value={vehicle.name}>
+            {vehicle.name} X {vehicle['total_no']}
+        </option>
+    ))
 
     // Datalists must be given dynamic ID, even though in separate components. 
     return (
-        <div key={distance} className="vehicles-container">
-            <label htmlFor="vehicle-selector" className="sr-only">
-            Choose a Vehicle from this list:
+        <div key={distance} className='vehicles-container'>
+            <label htmlFor='vehicle-selector' className='sr-only'>
+                Choose a Vehicle from this list:
             </label>
             <input
-                type="text"
+                type='text'
                 list={`range-${distance}`}
-                name="vehicle-selector"
+                name='vehicle-selector'
                 placeholder="Pick a vehicle"
-                onChange={inputValidation}
-                autoCorrect="off"
-                spellCheck="false"
+                onChange={validate}
+                autoCorrect='off'
+                spellCheck='false'
             />
-            <datalist id={`range-${distance}`} className='vehicle-list'>{options}</datalist>
+            <datalist id={`range-${distance}`} className='vehicle-list'>{options            }</datalist>
         </div>
     );
 }

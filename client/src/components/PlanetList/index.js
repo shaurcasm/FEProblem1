@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import inputValidation from '../../utilities/inputValidation.js';
 import './style.scss';
 
 // Any datalist styling; 
@@ -7,39 +8,13 @@ const PlanetList = ({ planets, select, changeImage }) => {
     const [selectedPlanet, setSelection] = useState('');
     const [previousSelection, setPrevious] = useState('');
 
-    // Can be optimized for both uses.
-    // Valuable code. Validating Datalist input.
-    // When the value of the input changes...
-    const inputValidation = event => {
-        var optionFound = false,
-            input = event.target,
-            datalist = input.list;
-        
-        // Determine whether an option exists with the current value of the input.
-        for (let j = 0; j < datalist.options.length; j++) {
-            let optionValue = datalist.options[j].value;
-            if(input.value.toUpperCase() === optionValue.toUpperCase()) {
-                optionFound = true;
-                setSelection(optionValue);
-                changeImage(optionValue);
-                break;
-            }
-        }
-        // Use the setCustomValidity function of the validation API
-        // to provide a user feedback if the value does not exist in the datalist.
-        optionFound ? 
-            input.setCustomValidity('') :
-            input.setCustomValidity('Please select a valid Planet');
-        input.reportValidity();
-    }
-
     // Apply if local state selected planet is changed(second argument)
     useEffect(() => {
-        if(selectedPlanet === previousSelection)
+        if (selectedPlanet === previousSelection)
             return;
 
         // If there was a previous selection, replace it with new one use redux action
-        if(previousSelection) {
+        if (previousSelection) {
             select.replacePlanet(selectedPlanet, previousSelection);
             setPrevious(selectedPlanet);
         }
@@ -50,17 +25,32 @@ const PlanetList = ({ planets, select, changeImage }) => {
         }
     }, [previousSelection, select, selectedPlanet]);
 
+    const validate = event => inputValidation(event, planets, setSelection, changeImage, null);
+
     // Gets updated everytime planets state is changed.
     const planetOptions = planets.filter(planet => planet.selected === false).map((planet, index) => {
         return (
-            <option key={index} value={planet.name}>{planet.name}</option>
-        )        
+            <option key={index} value={planet.name}>
+                {planet.name}
+            </option>
+        )
     });
-    
+
     return (
         <div className='planet-list'>
-            <label htmlFor='planet-selector' className='sr-only'>Choose a Planet from this list:</label>
-            <input type='text' list='available-planets' name='planet-selector' onChange={inputValidation} placeholder="Pick a Planet" autoCorrect='off' spellCheck='false' autoFocus />
+            <label htmlFor='planet-selector' className='sr-only'>
+                Choose a Planet from this list:
+            </label>
+            <input 
+                type='text'
+                list='available-planets'
+                name='planet-selector'
+                onChange={validate}
+                placeholder="Pick a Planet"
+                autoCorrect='off'
+                spellCheck='false'
+                autoFocus
+            />
             <datalist id='available-planets'>
                 {planetOptions}
             </datalist>

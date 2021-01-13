@@ -1,4 +1,4 @@
-import timeManagement from '../../utilities/timeManagement.js';
+import timeManagement from './timeManagement.js';
 
 // Valuable code. Validating Datalist input.
 // When the value of the input changes...
@@ -14,7 +14,7 @@ export default function inputValidation(event, currentList, select, changeFuncti
             optionFound = true;
             select(optionValue);
             let vehicleSpeed = currentList.filter(vehicle => vehicle.name === optionValue)[0].speed;
-            let change = vehicleSpeed ? timeManagement(distance, vehicleSpeed) : optionValue;
+            let change = vehicleSpeed && distance ? timeManagement(distance, vehicleSpeed) : optionValue;
             changeFunction(change);
             break;
         }
