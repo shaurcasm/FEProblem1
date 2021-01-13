@@ -36,7 +36,6 @@ const Presentational =  ({ planets, vehicles, selectPlanets, selectVehicles, dir
             let selectedPlanet = planets.filter(planet => planet.name === planetName);
             return selectedPlanet.length === 1 ? selectedPlanet[0].distance : DEFAULT_RANGE;
         });
-        //console.log(distanceToPlanet);
     }, [planetName, planets]);
 
     // Reverse flex-direction for alternate panels. Display time to reach planet when both planet, vehicle selected

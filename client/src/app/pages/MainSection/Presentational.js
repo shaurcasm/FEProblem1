@@ -42,7 +42,6 @@ const Presentational = ({ loading, error, selectionPanelVisibility, selectedOpti
                     return Promise.reject(error);
                 }
 
-                console.log("In React Result = " + JSON.stringify(data));
                 setResult(data);        // set data state to be provided when redirecting to result page
                 setRedirect('/result'); // set local state to initiate rerender and redirect to result with above data.
                 return data;

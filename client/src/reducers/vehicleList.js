@@ -1,7 +1,6 @@
 import { FETCH_VEHICLES, SELECT_VEHICLE } from '../constants/actionTypes.js';
 import { OFFLINE_VEHICLES } from '../constants/nouns.js';
 import produce from 'immer';    // To manipulate redux state elements AND retain immutability.
-//import deepFreeze from 'deep-freeze';
 
 const INITIAL_STATE = {
     vehicleArray: OFFLINE_VEHICLES,
@@ -13,7 +12,6 @@ const INITIAL_STATE = {
 
 const vehicleList = (state = INITIAL_STATE, action) => 
     produce(state, draft => {
-        //deepFreeze(state);
         // Don't need default case when using immer.
         // eslint-disable-next-line default-case
         switch(action.type) {

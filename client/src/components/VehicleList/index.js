@@ -1,18 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { DEFAULT_RANGE } from '../../constants/misc.js';
 import PropTypes from 'prop-types';
+import timeManagement from '../../utilities/timeManagement.js';
 import './style.scss';
-
-const timeManagement = (distance, speed) => {
-    if((distance > 0) && (distance < DEFAULT_RANGE)) {
-        //console.log('Distance = ' + distance, 'Speed = ' + speed);
-        return Math.round((distance / speed) * 100) / 100;  // Limiting precision to limit decimal calculation errors.
-    }
-
-    else {
-        // Out of range error
-    }
-}
 
 const VehicleList = ({ vehicles, select, distance, changeTime }) => {
     const [selectedVehicle, setSelection] = useState('');
@@ -21,7 +10,6 @@ const VehicleList = ({ vehicles, select, distance, changeTime }) => {
 
     // Update/Re-render options everytime the distance Props or Redux state Vehicles are changed.
     useEffect(() => {
-        //console.log("Distance to Planet: ", distance);
         setOptions([])
         var tempOptions = [];
         vehicles.forEach(vehicle => {
@@ -38,22 +26,18 @@ const VehicleList = ({ vehicles, select, distance, changeTime }) => {
 
     // Redux state management for Vehicles. 
     useEffect(() => {
-        //console.log("Current Vehicle: ", selectedVehicle);
-        //console.log("Previous Vehicle: ", previousSelection);
+        if(selectedVehicle === previousSelection)
+            return;
 
-        if(selectedVehicle !== previousSelection) {
-            // If there was a previous selection, replace it with new one use redux action
-            if(previousSelection) {
-                //console.log('Replace action!');
-                select.replaceVehicle(selectedVehicle, previousSelection);
-                setPrevious(selectedVehicle);
-            }
-            // Else, no previous selection. Merely use add action.
-            else {
-                //console.log('Add action!')
-                select.addVehicle(selectedVehicle);
-                setPrevious(selectedVehicle);
-            }
+        // If there was a previous selection, replace it with new one use redux action
+        if(previousSelection) {
+            select.replaceVehicle(selectedVehicle, previousSelection);
+            setPrevious(selectedVehicle);
+        }
+        // Else, no previous selection. Merely use add action.
+        else {
+            select.addVehicle(selectedVehicle);
+            setPrevious(selectedVehicle);
         }
     }, [previousSelection, select, selectedVehicle]);
 
@@ -78,12 +62,9 @@ const VehicleList = ({ vehicles, select, distance, changeTime }) => {
         }
         // Use the setCustomValidity function of the validation API
         // to provide a user feedback if the value does not exist in the datalist.
-        
-        if(optionFound) {
-            input.setCustomValidity('');
-        } else {
+        optionFound ? 
+            input.setCustomValidity('') :
             input.setCustomValidity('Please select a valid Vehicle');
-        }
         input.reportValidity();
     }
 

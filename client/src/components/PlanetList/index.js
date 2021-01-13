@@ -7,6 +7,7 @@ const PlanetList = ({ planets, select, changeImage }) => {
     const [selectedPlanet, setSelection] = useState('');
     const [previousSelection, setPrevious] = useState('');
 
+    // Can be optimized for both uses.
     // Valuable code. Validating Datalist input.
     // When the value of the input changes...
     const inputValidation = event => {
@@ -26,32 +27,26 @@ const PlanetList = ({ planets, select, changeImage }) => {
         }
         // Use the setCustomValidity function of the validation API
         // to provide a user feedback if the value does not exist in the datalist.
-        if(optionFound) {
-            input.setCustomValidity('');
-        } else {
+        optionFound ? 
+            input.setCustomValidity('') :
             input.setCustomValidity('Please select a valid Planet');
-        }
         input.reportValidity();
     }
 
     // Apply if local state selected planet is changed(second argument)
     useEffect(() => {
-        //console.log("Current Planet: ", selectedPlanet);
-        //console.log("Previous Planet: ", previousSelection);
+        if(selectedPlanet === previousSelection)
+            return;
 
-        if(selectedPlanet !== previousSelection) {
-            // If there was a previous selection, replace it with new one use redux action
-            if(previousSelection) {
-                //console.log('Replace action!');
-                select.replacePlanet(selectedPlanet, previousSelection);
-                setPrevious(selectedPlanet);
-            }
-            // Else, no previous selection. Merely use add action.
-            else {
-                //console.log('Add action!')
-                select.addPlanet(selectedPlanet);
-                setPrevious(selectedPlanet);
-            }
+        // If there was a previous selection, replace it with new one use redux action
+        if(previousSelection) {
+            select.replacePlanet(selectedPlanet, previousSelection);
+            setPrevious(selectedPlanet);
+        }
+        // Else, no previous selection. Merely use add action.
+        else {
+            select.addPlanet(selectedPlanet);
+            setPrevious(selectedPlanet);
         }
     }, [previousSelection, select, selectedPlanet]);
 

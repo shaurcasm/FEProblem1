@@ -20,7 +20,6 @@ const getResult = async (requestBody) => {
     }
     var response = await fetch(FIND_API, requestOptions);
     var result = await response.json();
-    //console.log("Result = " + JSON.stringify(result));
     
     return result;
 }
@@ -33,7 +32,6 @@ const getToken = async () => {
     }
     var response = await fetch(TOKEN_API, requestOptions);
     var tokenObject = await response.json();
-    //console.log('Token = ' + JSON.stringify(tokenObject));
 
     return tokenObject.token;
 }
@@ -45,18 +43,14 @@ app.use('/public', express.static(__dirname + '/public'));
 // Hosted by this server to process received UI input, getToken; send them to getResult.
 app.route('/api/getResult')
     .post(async (req, res) => {
-        //console.log("Accessed api route.");
         var token = await getToken();
-        //console.log("Completed Token.");
 
         var attemptObject = {}; // e.g. {token: 'ladida', planetnames:[], vehiclenames:[]}
         attemptObject['token'] = token;
         attemptObject['planet_names'] = req.body['planet_names'];
         attemptObject['vehicle_names'] = req.body['vehicle_names'];
-        //console.log("Attempt Object = " + JSON.stringify(attemptObject));
 
         var result = await getResult(JSON.stringify(attemptObject));
-        //console.log('Result = ' + JSON.stringify(result));
 
         res.send(result)
     });
