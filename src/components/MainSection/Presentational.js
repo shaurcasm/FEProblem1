@@ -1,7 +1,7 @@
 //Presentational code for Main Section
 
 import React, { useEffect, useState } from 'react';
-import SelectionPanel from '../../../components/SelectionPanel';
+import SelectionPanel from '../SelectionPanel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun } from '@fortawesome/free-solid-svg-icons';
 import { Redirect } from 'react-router-dom';

@@ -22,25 +22,29 @@ Find Queen Falcone...
 
 Installs express server dependencies and "post-install", installs client React app dependencies.
 
-### Development Script
+### Start Script
 
 > npm start
 
-Starts the Dev build.
-Concurrently start the server and the single page app or client. Client must have the proxy(in package.json) set to server's
-port
+Starts the server that serves the production build.
+
+### Development Script
+
+> npm run dev
+
+Concurrently starts the server and runs the react-script.
 
 ### Build Script
 
 .env file > NODE_ENV=production
 
-To build the client:
-> npm run heroku-postbuild
+> npm run build
 
-To serve the client:
-> npm run server
+Default build script.
 
-Build script used for Heroku.
+> npm heroku-postbuild
+
+Build script used for Heroku, done by Heroku.
 
 ### Test Script
 
@@ -53,3 +57,11 @@ Tests the client-side App.
 1. When we backspace/Delete a written/selected vehicle, it doesn't put it back in available options.
 
 2. Try to make datalist components stateless.
+
+### Possible updates:
+
+1. Server-side rendering. Improves React app's Google search performance.
+
+2. Automate user input Link/Functionality. Redundant Luxury/Useful for external testers.
+
+3. Parallax scrolling.

@@ -57,16 +57,16 @@ app.route('/api/getResult')
 
 if(process.env.NODE_ENV === 'production') {
     // Serve any static files
-    app.use(express.static(path.join(__dirname, 'client/build')));
+    app.use(express.static(path.join(__dirname, '/build')));
 
     // Will need to look further with react-router
     app.get('/*', (req, res) => {
-        res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+        res.sendFile(path.join(__dirname, '/build', 'index.html'));
     })
 }
 
 app.get('/', (req, res) => {
-    res.render('./views/index.html');
+    res.render('./index.html');
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
