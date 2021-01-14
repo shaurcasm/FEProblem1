@@ -38,18 +38,18 @@ html {
 }
 
 #small-stars1 {
-    box-shadow: duplicateShadows(300, 0, 0);
+    box-shadow: duplicateShadows(200, 0, 0);
     animation: starryEyed 3s ease-in infinite;
 }
 
 #small-stars2 {
-    box-shadow: duplicateShadows(300, 0, 0);
-    animation: starryEyed 3s ease-out infinite;
+    box-shadow: duplicateShadows(350, 0, 0);
+    animation: starryEyed 6s ease-out infinite;
 }
 
 #small-stars3 {
-    box-shadow: duplicateShadows(300, 0, 0);
-    animation: starryEyed 6s ease-in-out infinite;
+    box-shadow: duplicateShadows(350, 0, 0);
+    animation: starryEyed 6s ease-in infinite;
 }
 
 #big-stars {

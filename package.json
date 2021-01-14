@@ -1,5 +1,5 @@
 {
-  "name": "client",
+  "name": "feproblem1",
   "version": "1.0.0",
   "private": true,
   "description": "A project for a Geektrust front-end problem.",
@@ -31,8 +31,7 @@
     "express": "^4.17.1"
   },
   "scripts": {
-    "start": "node server.js",
-    "dev": "concurrently --kill-others-on-fail \"npm start\" \"react-scripts start\"",
+    "start": "concurrently --kill-others-on-fail \"node server.js\" \"react-scripts start\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

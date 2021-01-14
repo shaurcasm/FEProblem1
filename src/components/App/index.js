@@ -80,7 +80,7 @@ const App = () => {
                 </Switch>
             </div>
             <footer id='footer'>
-                Copyright © Shaurya S. Pal 2020. Original Blackhole Image by <a href="https://pixabay.com/users/insspirito-1851261/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1280110">Garik Barseghyan</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1280110">Pixabay</a>.
+                Copyright © Lorem Ipsum 2020. Original Blackhole Image by <a href="https://pixabay.com/users/insspirito-1851261/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1280110">Garik Barseghyan</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1280110">Pixabay</a>.
             </footer>
         </div>
     );

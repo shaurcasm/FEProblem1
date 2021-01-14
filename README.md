@@ -11,7 +11,9 @@ Heroku app link: [Finding Falcone](https://finding-queen-falcone.herokuapp.com/)
 Find Queen Falcone...
 
 1. Fetch Planets and Vehicles from given APIs.
+
 2. User selects 4 Planets and respective vehicles to get there; Vehicles are limited by their Quantity and Range.
+
 3. "Launch" button, activated after selecting 4 Planets. Sends the selection to external API, after Token is wrapped in Back-end, express.
 
 ## Script Details
@@ -20,31 +22,25 @@ Find Queen Falcone...
 
 > npm install
 
-Installs express server dependencies and "post-install", installs client React app dependencies.
-
-### Start Script
-
-> npm start
-
-Starts the server that serves the production build.
+Installs dependencies.
 
 ### Development Script
 
-> npm run dev
+> npm start
 
-Concurrently starts the server and runs the react-script.
+Starts the Dev build.
+Concurrently start the server and the single page app or client. Client must have the proxy(in package.json) set to server's
+port
 
 ### Build Script
 
 .env file > NODE_ENV=production
 
+To build the client:
 > npm run build
 
-Default build script.
-
+Build script used by Heroku:
 > npm heroku-postbuild
-
-Build script used for Heroku, done by Heroku.
 
 ### Test Script
 
@@ -53,15 +49,3 @@ Build script used for Heroku, done by Heroku.
 Tests the client-side App.
 
 ## Notes:
-
-1. When we backspace/Delete a written/selected vehicle, it doesn't put it back in available options.
-
-2. Try to make datalist components stateless.
-
-### Possible updates:
-
-1. Server-side rendering. Improves React app's Google search performance.
-
-2. Automate user input Link/Functionality. Redundant Luxury/Useful for external testers.
-
-3. Parallax scrolling.
