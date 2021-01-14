@@ -13,7 +13,7 @@ const Presentational =  ({ planets, vehicles, selectPlanets, selectVehicles, dir
     const reverseOrNot = direction || 'row';
 
     // Set image of the planet if available, else set default if no planet or no image.
-    const changePlanetImage = (planet) => {
+    const changePlanetImage = planet => {
         var src = planetToImageSrcMatrix[planet];
         var imageNameRE = /(?<=\/)\w+(?=\.png$)/;
 
@@ -25,10 +25,6 @@ const Presentational =  ({ planets, vehicles, selectPlanets, selectVehicles, dir
             setSource(DEFAULT_SRC);
             setName(DEFAULT_ALT);
         }
-    }
-
-    const changeTime = (time) => {
-        setTime(time);
     }
 
     useEffect(() => {
@@ -53,7 +49,7 @@ const Presentational =  ({ planets, vehicles, selectPlanets, selectVehicles, dir
             }
             <div className="selectors-container">
                 <PlanetList planets={planets} select={selectPlanets} changeImage={changePlanetImage} />
-                <VehicleList vehicles={vehicles} select={selectVehicles} distance={distanceToPlanet} changeTime={changeTime} />
+                <VehicleList vehicles={vehicles} select={selectVehicles} distance={distanceToPlanet} changeTime={setTime} />
             </div>
         </div>
     )

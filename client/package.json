@@ -2,7 +2,7 @@
   "name": "client",
   "version": "1.0.0",
   "private": true,
-  "type": "module",
+  "description": "A project for a Geektrust front-end problem.",
   "proxy": "http://localhost:9000/",
   "homepage": "./",
   "dependencies": {

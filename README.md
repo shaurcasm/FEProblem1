@@ -51,3 +51,5 @@ Tests the client-side App.
 ## Notes:
 
 1. When we backspace/Delete a written/selected vehicle, it doesn't put it back in available options.
+
+2. Try to make datalist components stateless.

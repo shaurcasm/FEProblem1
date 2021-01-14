@@ -2,9 +2,9 @@
 
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import MainSection from './pages/MainSection';
-import ReadLore from './pages/ReadLore';
-import Result from './pages/Result';
+import MainSection from '../../app/pages/MainSection';
+import ReadLore from '../ReadLore';
+import Result from '../Result';
 import {
     Switch,
     Route,
@@ -12,8 +12,8 @@ import {
     Redirect,
     useLocation
 } from "react-router-dom";
-import { resetPlanetList } from '../actions/selectPlanets.js';
-import { resetVehicleList } from '../actions/selectVehicles.js';
+import { resetPlanetList } from '../../actions/selectPlanets.js';
+import { resetVehicleList } from '../../actions/selectVehicles.js';
 import './style.scss';
 
 const App = () => {
